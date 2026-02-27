@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+      li a {
+        color: black;
+      }
+      .li {
+        transition: all 1s;
+      }
+      .li:hover {
+        background-color: blue;
+        color: white;
+        padding: 2px 4px;
+      }
+      .aa{
+        color: white !important;
+      }
+      .aa:hover {
+        color: blue !important;
+      }
+      .work-agri {
+        background-image: url("work-agri.jpg");
+        background-position: center;
+        background-size: cover;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .hero {
+        background-color: rgb(202, 194, 194, 0.3);
+        backdrop-filter: blur(2px);
+      }
+      .img {
+        height: 100px;
+        width: 100px;
+        position: relative;
+        padding-bottom: 5px;
+      }
+      .img::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 10px;
+        height: 5px;
+        background-color: grey;
+        transition: width 0.5s;
+        border-radius: 5px;
+      }
+      .img:hover::after {
+        width: 100px;
+        background-color: orangered;
+      }
+      .ii {
+        height: 70px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid position-relative">
+      <nav
+        class="container-fluid navbar bg-light border-body position-sticky top-0 z-3"
+        data-bs-theme="dark"
+      >
+        <img class="img-fluid ii" src="./asset/ngo-logo.png" alt="" />
+        <ul
+          class="d-flex align-item-center justify-content-between col-6 list-unstyled"
+        >
+          <li class="li">
+            <a class="text-decoration-none fs-5" href=""> Home </a>
+          </li>
+          <li class="li">
+            <a class="text-decoration-none fs-5" href=""> Portfolio </a>
+          </li>
+          <li class="li">
+            <a class="text-decoration-none fs-5" href="about.html"> About </a>
+          </li>
+          <li class="li">
+            <a class="text-decoration-none fs-5" href="contact.html">
+              Contact
+            </a>
+          </li>
+          <button class="bg-danger fs-5 px-4 rounded-3 border-0">
+            <a class="text-decoration-none fs-5 text-white" href="blog.html"
+              >BLOG</a
+            >
+          </button>
+        </ul>
+
+        <form class="d-flex" role="search">
+          <input
+            class="form-control me-2 bg-white text-black"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </nav>
+      <section class="container-fluid mt-3">
+        <section
+          class="row work-agri min-vh-100 d-flex justify-content-center align-items-center"
+        >
+          <div class="col-6 hero p-3 rounded-3">
+            <h1 class="text-white text-center">
+              Empowering Families, Building a Stronger Society
+            </h1>
+            <p class="text-white fw-5 text-center">
+              SEWA (Self Employed Women’s Association) is a social organization
+              dedicated to empowering women, men, and children to create a
+              better and more sustainable future. Our mission is to promote
+              self-reliance, equal opportunities, and dignified livelihoods
+              through education, skill development, healthcare, and employment
+              support. By strengthening families at the grassroots level, we aim
+              to build a more inclusive and empowered society.
+            </p>
+            <div class="d-flex justify-content-center align-item-center">
+              <button type="button" class="btn btn-outline-warning fs-4 fw-3">
+                Learn More
+              </button>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section
+        class="row bg-white d-flex justify-content-evenly align-items-center mt-5 mb-5"
+      >
+        <div class="col-sm-12 card" style="width: 18rem">
+          <img class="card-img-top bg-success" src="./asset/skill.png" alt="" />
+
+          <div class="card-body">
+            <h1 class="fs-4">Skill Development & Training</h1>
+            <p class="text-justify">
+              We provide vocational training and skill-building programs to help
+              women and youth become self-reliant. These programs are designed
+              to create sustainable livelihood opportunities and financial
+              independence.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-sm-12 card" style="width: 18rem">
+          <img
+            class="card-img-top bg-success"
+            src="./asset/education.png"
+            alt=""
+          />
+
+          <div class="card-body">
+            <h1 class="fs-4">Education & Child Support</h1>
+            <p class="text-justify">
+              Our education services focus on providing quality learning, school
+              support, and a safe environment for children, ensuring a strong
+              foundation for their future growth and success.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-sm-12 card" style="width: 18rem">
+          <img
+            class="card-img-top bg-success"
+            src="./asset/health.png"
+            alt=""
+          />
+
+          <div class="card-body">
+            <h1 class="fs-4">Healthcare & Wellness</h1>
+            <p class="text-justify">
+              We offer basic healthcare support, health awareness programs, and
+              wellness initiatives for families, especially in underserved
+              communities, to promote healthy and dignified living.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-sm-12 card" style="width: 18rem">
+          <img class="card-img-top bg-success" src="./asset/emp-3.png" alt="" />
+
+          <div class="card-body">
+            <h1 class="fs-4">Employment & Livelihood Support</h1>
+            <p class="text-justify">
+              We assist individuals and self-employed workers by connecting them
+              with job opportunities, resources, and financial guidance to
+              improve income stability and long-term security.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="row bg-secondary py-5">
+        <div
+          class="row m-2 d-flex align-items-center justify-content-around container-fluid"
+        >
+          <div class="col-6 text-warning fw-5 fs-3">Our Portfolio</div>
+          <div class="col-3 fs-4">
+            <p class="float-end bg-primary rounded-3 p-2 text-white">
+              More Works
+            </p>
+          </div>
+        </div>
+        <div class="row d-flex align-items-center justify-content-evenly">
+          <div class="col-3">
+            <h1 class="fs-3 m-0">Women Skill Empowerment Program</h1>
+            <p class="m-0">
+              This project focuses on training self-employed women in tailoring,
+              handicrafts, food processing, and digital skills. The goal is to
+              help women start or expand their own small businesses and achieve
+              financial independence.
+            </p>
+            <h2 class="fs-4 m-0">Impact:</h2>
+            <p class="m-0">500+ women trained</p>
+            <p class="m-0">Sustainable income opportunities created</p>
+          </div>
+          <div class="col-3">
+            <h1 class="fs-3 m-0">Child Education & Care Initiative</h1>
+            <p class="m-0">
+              Through this project, we support children from underprivileged
+              families by providing access to education, learning materials, and
+              after-school guidance in a safe and supportive environment.
+            </p>
+            <h2 class="fs-4 m-0">Impact:</h2>
+            <p class="m-0">300+ children supported</p>
+            <p class="m-0">Improved school attendance and learning outcomes</p>
+          </div>
+          <div class="col-3">
+            <h1 class="fs-3 m-0">Community Health & Wellness Drive</h1>
+            <p class="m-0">
+              This initiative delivers basic healthcare services, health
+              awareness camps, and nutrition support for families, focusing on
+              preventive care and overall community well-being.
+            </p>
+            <h2 class="fs-4 m-0">Impact:</h2>
+            <p class="m-0">50+ health camps organized</p>
+            <p class="m-0">Thousands of families benefited</p>
+          </div>
+        </div>
+      </section>
+      <section
+        class="row bg-white text-center d-flex align-items-center justify-content-center py-5"
+      >
+        <h1 class="text-uppercase text-info">what we offer</h1>
+        <p class="text-black fs-5 w-50">
+          We offer inclusive and community-focused services designed to empower
+          women, support families, and create sustainable livelihood
+          opportunities. Our programs aim to improve education, health, and
+          employment while promoting self-reliance and dignity for all.
+        </p>
+      </section>
+      <section class="row d-flex justify-content-evenly align-items-start">
+        <div class="col-2">
+          <h1 class="text-info fs-4">Clean & Professional</h1>
+          <p class="fs-5">
+            We offer inclusive and community-focused services designed to
+            empower women, support families, and create sustainable livelihood
+            opportunities.
+          </p>
+        </div>
+        <div class="col-2">
+          <h1 class="text-info fs-4">Warm & Impact-Driven</h1>
+          <p class="fs-5">
+            Our services are built to uplift communities by providing skills,
+            education, healthcare, and employment support.
+          </p>
+        </div>
+        <div class="col-2">
+          <h1 class="text-info fs-4">Short & Modern</h1>
+          <p class="fs-5">
+            We provide practical solutions that empower individuals, strengthen
+            families, and build a more inclusive society.
+          </p>
+        </div>
+        <div class="col-2">
+          <h1 class="text-info fs-4">NGO-Focused</h1>
+          <p class="fs-5">
+            Our organization delivers essential services that address social,
+            educational, and economic challenges.
+          </p>
+        </div>
+      </section>
+      <hr />
+      <section class="row " style="padding-bottom: 3vw;">
+        <h1 class="text-info text-center">TESTIMONIALS</h1>
+        <div class="row d-flex justify-content-center">
+          <p class="text-center fs-4 w-50 fw-2">
+            SEWA gave me the skills and confidence to start my own small
+            business. Today, I can support my family with dignity and pride.
+          </p>
+        </div>
+        <p class="text-center fs-5 text-warning fw-3">
+          Ashish Singh / CEO of SEWA
+        </p>
+
+        <div class="row d-flex align-items-center justify-content-center">
+          <div class="col-3 d-flex justify-content-between">
+            <div class="rounded-circle bg-warning img">
+              <img style="width: 100%; border-radius: 50%;" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D" alt="">
+            </div>
+            <div class="rounded-circle bg-warning img">
+                           <img style="width: 100%; border-radius: 50%;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3-Ed4-3CnbmDqsOD8a9VJwcC5wN7HV47H1A&s" alt="">
+            </div>
+            <div class="rounded-circle bg-warning img">
+
+
+               <img style="width: 100%;height: 110%; object-fit: cover; object-position: center; border-radius: 50%;" src="https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D" alt="">
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer
+        class="row bg-secondary px-5 py-5 d-flex justify-content-around"
+      >
+        <div class="col-2">
+          <h1 class="fs-3 text-white px-3">About Us</h1>
+          <ul>
+            <li class="list-unstyled">
+              <a class=" aa text-decoration-none" href="">About SEWA</a>
+            </li>
+            <hr>
+            <li class="list-unstyled">
+              <a class=" aa text-decoration-none" href="">Our Mission</a>
+            </li>
+            <hr>
+            <li class="list-unstyled">
+              <a class=" aa text-decoration-none" href="">Our Vision</a>
+            </li>
+            <hr>
+            <li class="list-unstyled">
+              <a class=" aa text-decoration-none text-white" href="">Our Impact</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-2">
+          <h1 class="fs-3 text-white">Quick Links</h1>
+          <ul>
+            <li class="list-unstyled">
+              <a class="text-decoration-none aa" href="index.html">Home</a>
+            </li>
+            <hr>
+            <li class="list-unstyled">
+              <a class="text-decoration-none aa" href="">What We Offer</a>
+            </li>
+            <hr>
+            <li class="list-unstyled">
+              <a class="text-decoration-none aa" href="about.html">Projects</a>
+            </li>
+            <hr>
+            <li class="list-unstyled">
+              <a class="text-decoration-none aa" href="blog.html">Testimonials</a>
+            </li>
+            <hr>
+            <li class="list-unstyled">
+              <a class="text-decoration-none aa" href="contact.html">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-2">
+          <h1 class="fs-3 text-white">Our Services</h1>
+          <ul>
+            <li class="list-unstyled">
+              <a class="text-decoration-none aa" href="">Skill Development</a>
+            </li>
+            <hr>
+            <li class="list-unstyled">
+              <a class="text-decoration-none aa" href="">Education Support</a>
+            </li>
+            <hr>
+            <li class="list-unstyled">
+              <a class="text-decoration-none aa" href="">Health & Wellness</a>
+            </li>
+            <hr>
+            <li class="list-unstyled">
+              <a class="text-decoration-none aa" href="">Employment Assistance</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-2">
+          <h1 class="fs-3 text-white">Contact Info</h1>
+          <ul class="float-start">
+            <li class="list-unstyled">
+              <a class="text-decoration-none aa" href="">Address</a>
+            </li>
+            <hr>
+            <li class="list-unstyled">
+              <a class="text-decoration-none aa" href="">Phone Number</a>
+            </li>
+            <hr>
+            <li class="list-unstyled">
+              <a class="text-decoration-none aa" href="">Email</a>
+            </li>
+            <hr>
+            <li class="list-unstyled">
+              <a class="text-decoration-none aa" href="">Working Hours</a>
+            </li>
+            <hr>
+          </ul>
+        </div>
+      </footer>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+  AOS.init();
+</script>
+  </body>
+</html>
