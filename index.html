@@ -3,413 +3,708 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <meta name="description" content="SEWA – Self Employed Women's Association. Empowering women, men, and children through skill development, education, healthcare, and employment support." />
+    <meta name="keywords" content="NGO, SEWA, women empowerment, skill development, education, healthcare, India" />
+    <meta name="theme-color" content="#0d6efd" />
+    <title>SEWA – Empowering Families, Building Society</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="SEWA – Empowering Families, Building a Stronger Society" />
+    <meta property="og:description" content="A social organization dedicated to empowering women, men, and children." />
+    <meta property="og:type" content="website" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
     <style>
-      li a {
-        color: black;
+      /* ── Design tokens ── */
+      :root {
+        --sewa-green:  #1a7a4a;
+        --sewa-gold:   #e8a020;
+        --sewa-navy:   #0d2240;
+        --sewa-light:  #f4f8f5;
+        --sewa-card-shadow: 0 4px 24px rgba(13,34,64,.10);
+        --hero-overlay: linear-gradient(135deg, rgba(13,34,64,.72) 0%, rgba(26,122,74,.55) 100%);
+        --font-display: 'Playfair Display', Georgia, serif;
+        --font-body:    'DM Sans', sans-serif;
       }
-      .li {
-        transition: all 1s;
+
+      /* ── Base ── */
+      *, *::before, *::after { box-sizing: border-box; }
+      body {
+        font-family: var(--font-body);
+        color: #1c2b1e;
+        background: #fff;
+        overflow-x: hidden;
       }
-      .li:hover {
-        background-color: blue;
-        color: white;
-        padding: 2px 4px;
+
+      /* ── Navbar ── */
+      .navbar { border-bottom: 2px solid var(--sewa-green); }
+      .navbar-brand img { height: 56px; width: auto; object-fit: contain; }
+      .nav-link {
+        font-weight: 500;
+        color: #1c2b1e !important;
+        position: relative;
+        padding-bottom: .35rem !important;
       }
-      .aa{
-        color: white !important;
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0; left: 50%;
+        width: 0; height: 2px;
+        background: var(--sewa-green);
+        transition: width .3s, left .3s;
+        border-radius: 2px;
       }
-      .aa:hover {
-        color: blue !important;
+      .nav-link:hover::after, .nav-link:focus::after { width: 100%; left: 0; }
+      .nav-link:hover, .nav-link:focus { color: var(--sewa-green) !important; }
+      .btn-blog {
+        background: #dc3545;
+        color: #fff;
+        font-weight: 600;
+        border: none;
+        border-radius: .5rem;
+        padding: .4rem 1.2rem;
+        transition: background .2s, transform .15s;
       }
-      .work-agri {
+      .btn-blog:hover { background: #b02a37; transform: translateY(-1px); color: #fff; }
+
+      /* ── Hero ── */
+      .hero-section {
         background-image: url("work-agri.jpg");
         background-position: center;
         background-size: cover;
-      }
-      * {
-        margin: 0;
-        padding: 0;
-      }
-      .hero {
-        background-color: rgb(202, 194, 194, 0.3);
-        backdrop-filter: blur(2px);
-      }
-      .img {
-        height: 100px;
-        width: 100px;
+        background-attachment: scroll;
+        min-height: 92vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         position: relative;
-        padding-bottom: 5px;
       }
-      .img::after {
-        content: "";
-        position: absolute;
-        bottom: -10px;
-        left: 0;
-        width: 10px;
-        height: 5px;
-        background-color: grey;
-        transition: width 0.5s;
-        border-radius: 5px;
+      .hero-section::before {
+        content: '';
+        position: absolute; inset: 0;
+        background: var(--hero-overlay);
       }
-      .img:hover::after {
-        width: 100px;
-        background-color: orangered;
+      .hero-inner {
+        position: relative;
+        z-index: 2;
+        max-width: 720px;
+        text-align: center;
+        padding: 2.5rem 2rem;
+        border-radius: 1rem;
+        backdrop-filter: blur(6px);
+        background: rgba(255,255,255,.07);
+        border: 1px solid rgba(255,255,255,.18);
       }
-      .ii {
-        height: 70px;
+      .hero-inner h1 {
+        font-family: var(--font-display);
+        font-size: clamp(1.8rem, 5vw, 3rem);
+        color: #fff;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+      }
+      .hero-inner p { color: rgba(255,255,255,.90); font-size: 1.05rem; line-height: 1.7; }
+      .hero-badge {
+        display: inline-block;
+        background: var(--sewa-gold);
+        color: var(--sewa-navy);
+        font-weight: 700;
+        font-size: .78rem;
+        letter-spacing: .08em;
+        padding: .3rem .9rem;
+        border-radius: 2rem;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+      }
+
+      /* ── Stats bar ── */
+      .stats-bar { background: var(--sewa-green); }
+      .stat-item { border-right: 1px solid rgba(255,255,255,.22); }
+      .stat-item:last-child { border-right: none; }
+      .stat-num {
+        font-family: var(--font-display);
+        font-size: 2.2rem;
+        font-weight: 900;
+        color: var(--sewa-gold);
+        line-height: 1;
+      }
+      .stat-label { font-size: .85rem; color: rgba(255,255,255,.85); }
+
+      /* ── Services cards ── */
+      .services-section { background: var(--sewa-light); }
+      .service-card {
+        border: none;
+        border-radius: 1rem;
+        box-shadow: var(--sewa-card-shadow);
+        transition: transform .25s, box-shadow .25s;
+        height: 100%;
+        overflow: hidden;
+      }
+      .service-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 36px rgba(13,34,64,.15);
+      }
+      .service-icon-wrap {
+        width: 64px; height: 64px;
+        background: var(--sewa-green);
+        border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        margin-bottom: 1rem;
+      }
+      .service-icon-wrap i { font-size: 1.6rem; color: #fff; }
+      .service-card .card-img-top {
+        height: 160px;
+        object-fit: contain;
+        background: #e8f5ee;
+        padding: 1.2rem;
+      }
+
+      /* ── Portfolio ── */
+      .portfolio-section { background: var(--sewa-navy); }
+      .portfolio-section h2 { font-family: var(--font-display); }
+      .portfolio-card {
+        border: 1px solid rgba(255,255,255,.12);
+        border-radius: 1rem;
+        background: rgba(255,255,255,.06);
+        backdrop-filter: blur(4px);
+        transition: background .25s, transform .25s;
+        height: 100%;
+      }
+      .portfolio-card:hover {
+        background: rgba(255,255,255,.12);
+        transform: translateY(-4px);
+      }
+      .portfolio-tag {
+        display: inline-block;
+        background: var(--sewa-gold);
+        color: var(--sewa-navy);
+        font-size: .75rem;
+        font-weight: 700;
+        padding: .2rem .7rem;
+        border-radius: 2rem;
+        letter-spacing: .05em;
+        text-transform: uppercase;
+        margin-bottom: .6rem;
+      }
+      .portfolio-card h3 { font-family: var(--font-display); color: #fff; font-size: 1.15rem; }
+      .portfolio-card p { color: rgba(255,255,255,.78); font-size: .93rem; line-height: 1.65; }
+      .impact-pill {
+        display: inline-flex; align-items: center; gap: .4rem;
+        background: rgba(255,255,255,.10);
+        color: #fff;
+        font-size: .82rem;
+        border-radius: 2rem;
+        padding: .25rem .7rem;
+        margin: .25rem .1rem 0 0;
+      }
+      .impact-pill i { color: var(--sewa-gold); }
+
+      /* ── What We Offer ── */
+      .offer-section { background: #fff; }
+      .offer-card {
+        border-left: 4px solid var(--sewa-green);
+        padding: 1.2rem 1.5rem;
+        border-radius: 0 .75rem .75rem 0;
+        background: var(--sewa-light);
+        height: 100%;
+        transition: border-color .2s;
+      }
+      .offer-card:hover { border-color: var(--sewa-gold); }
+      .offer-card h3 { font-family: var(--font-display); color: var(--sewa-navy); font-size: 1.05rem; margin-bottom: .5rem; }
+      .offer-card p { color: #4a5c50; font-size: .93rem; margin: 0; }
+
+      /* ── Testimonials ── */
+      .testimonials-section { background: var(--sewa-light); }
+      .testimonials-section h2 { font-family: var(--font-display); }
+      .testimonial-card {
+        background: #fff;
+        border-radius: 1.2rem;
+        box-shadow: var(--sewa-card-shadow);
+        padding: 2rem;
+        max-width: 640px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .quote-icon { font-size: 2.8rem; color: var(--sewa-gold); line-height: 1; margin-bottom: .5rem; }
+      .testimonial-card blockquote { font-size: 1.1rem; line-height: 1.75; color: #2a3c2e; font-style: italic; }
+      .testimonial-avatars .avatar-wrap {
+        width: 64px; height: 64px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 3px solid #fff;
+        box-shadow: 0 2px 10px rgba(0,0,0,.18);
+        transition: transform .2s;
+        cursor: pointer;
+      }
+      .testimonial-avatars .avatar-wrap:hover { transform: scale(1.1); }
+      .testimonial-avatars .avatar-wrap img { width: 100%; height: 100%; object-fit: cover; }
+
+      /* ── Footer ── */
+      footer { background: var(--sewa-navy); color: rgba(255,255,255,.8); }
+      footer h5 {
+        font-family: var(--font-display);
+        color: #fff;
+        font-size: 1.1rem;
+        margin-bottom: 1.1rem;
+        padding-bottom: .5rem;
+        border-bottom: 2px solid var(--sewa-gold);
+        display: inline-block;
+      }
+      footer a {
+        color: rgba(255,255,255,.75);
+        text-decoration: none;
+        font-size: .93rem;
+        transition: color .2s, padding-left .2s;
+        display: block;
+        padding: .22rem 0;
+      }
+      footer a:hover { color: var(--sewa-gold); padding-left: 6px; }
+      .footer-bottom {
+        border-top: 1px solid rgba(255,255,255,.12);
+        font-size: .85rem;
+        color: rgba(255,255,255,.5);
+      }
+      .social-btn {
+        display: inline-flex; align-items: center; justify-content: center;
+        width: 38px; height: 38px;
+        border-radius: 50%;
+        background: rgba(255,255,255,.10);
+        color: #fff;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: background .2s, transform .2s;
+      }
+      .social-btn:hover { background: var(--sewa-gold); color: var(--sewa-navy); transform: translateY(-2px); }
+
+      /* ── Utilities ── */
+      .btn-sewa-primary {
+        background: var(--sewa-green);
+        color: #fff;
+        border: none;
+        font-weight: 600;
+        border-radius: .5rem;
+        padding: .65rem 1.8rem;
+        transition: background .2s, transform .15s;
+      }
+      .btn-sewa-primary:hover { background: #155c38; color: #fff; transform: translateY(-1px); }
+      .btn-sewa-outline {
+        border: 2px solid #fff;
+        color: #fff;
+        background: transparent;
+        font-weight: 600;
+        border-radius: .5rem;
+        padding: .65rem 1.8rem;
+        transition: background .2s, color .2s;
+      }
+      .btn-sewa-outline:hover { background: #fff; color: var(--sewa-green); }
+      .section-eyebrow {
+        font-size: .8rem;
+        font-weight: 700;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        color: var(--sewa-green);
+        margin-bottom: .5rem;
+      }
+      .section-title { font-family: var(--font-display); }
+
+      /* ── Scroll animations ── */
+      @media (prefers-reduced-motion: no-preference) {
+        .fade-up { opacity: 0; transform: translateY(28px); transition: opacity .55s ease, transform .55s ease; }
+        .fade-up.visible { opacity: 1; transform: none; }
+        .fade-up-delay-1 { transition-delay: .1s; }
+        .fade-up-delay-2 { transition-delay: .2s; }
+        .fade-up-delay-3 { transition-delay: .3s; }
+        .fade-up-delay-4 { transition-delay: .4s; }
+      }
+
+      /* ── Responsive tweaks ── */
+      @media (max-width: 767.98px) {
+        .hero-section { min-height: 100svh; }
+        .hero-inner { margin: 1rem; padding: 1.8rem 1.2rem; }
+        .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.22); }
+        .stat-item:last-child { border-bottom: none; }
       }
     </style>
   </head>
   <body>
-    <div class="container-fluid position-relative">
-      <nav
-        class="container-fluid navbar bg-light border-body position-sticky top-0 z-3"
-        data-bs-theme="dark"
-      >
-        <img class="img-fluid ii" src="./asset/ngo-logo.png" alt="" />
-        <ul
-          class="d-flex align-item-center justify-content-between col-6 list-unstyled"
-        >
-          <li class="li">
-            <a class="text-decoration-none fs-5" href=""> Home </a>
-          </li>
-          <li class="li">
-            <a class="text-decoration-none fs-5" href=""> Portfolio </a>
-          </li>
-          <li class="li">
-            <a class="text-decoration-none fs-5" href="about.html"> About </a>
-          </li>
-          <li class="li">
-            <a class="text-decoration-none fs-5" href="contact.html">
-              Contact
-            </a>
-          </li>
-          <button class="bg-danger fs-5 px-4 rounded-3 border-0">
-            <a class="text-decoration-none fs-5 text-white" href="blog.html"
-              >BLOG</a
-            >
-          </button>
-        </ul>
 
-        <form class="d-flex" role="search">
-          <input
-            class="form-control me-2 bg-white text-black"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </nav>
-      <section class="container-fluid mt-3">
-        <section
-          class="row work-agri min-vh-100 d-flex justify-content-center align-items-center"
-        >
-          <div class="col-6 hero p-3 rounded-3">
-            <h1 class="text-white text-center">
-              Empowering Families, Building a Stronger Society
-            </h1>
-            <p class="text-white fw-5 text-center">
-              SEWA (Self Employed Women’s Association) is a social organization
-              dedicated to empowering women, men, and children to create a
-              better and more sustainable future. Our mission is to promote
-              self-reliance, equal opportunities, and dignified livelihoods
-              through education, skill development, healthcare, and employment
-              support. By strengthening families at the grassroots level, we aim
-              to build a more inclusive and empowered society.
-            </p>
-            <div class="d-flex justify-content-center align-item-center">
-              <button type="button" class="btn btn-outline-warning fs-4 fw-3">
-                Learn More
-              </button>
+    <!-- ══════════════════════════════════
+         NAVBAR
+    ══════════════════════════════════ -->
+    <nav class="navbar navbar-expand-lg bg-white sticky-top shadow-sm" aria-label="Main navigation">
+      <div class="container-xl">
+        <a class="navbar-brand" href="index.html" aria-label="SEWA Home">
+          <img src="./asset/ngo-logo.png" alt="SEWA Logo" />
+        </a>
+
+        <button class="navbar-toggler border-0" type="button"
+          data-bs-toggle="collapse" data-bs-target="#mainNav"
+          aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav mx-auto gap-lg-2">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Portfolio</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item ms-lg-2">
+              <a class="btn btn-blog" href="blog.html">BLOG</a>
+            </li>
+          </ul>
+
+          <form class="d-flex gap-2 mt-3 mt-lg-0" role="search" aria-label="Site search">
+            <input class="form-control form-control-sm" type="search"
+              placeholder="Search…" aria-label="Search" />
+            <button class="btn btn-sm btn-sewa-primary" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ══════════════════════════════════
+         HERO
+    ══════════════════════════════════ -->
+    <section class="hero-section" aria-label="Hero">
+      <div class="hero-inner">
+        <span class="hero-badge">Est. NGO · India</span>
+        <h1>Empowering Families,<br>Building a Stronger Society</h1>
+        <p class="mb-4">
+          SEWA (Self Employed Women's Association) is a social organization
+          dedicated to empowering women, men, and children through education,
+          skill development, healthcare, and employment support — creating a
+          more inclusive and dignified society at the grassroots level.
+        </p>
+        <div class="d-flex flex-wrap gap-3 justify-content-center">
+          <a href="about.html" class="btn btn-sewa-primary">Learn More</a>
+          <a href="contact.html" class="btn btn-sewa-outline">Get Involved</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════
+         STATS BAR
+    ══════════════════════════════════ -->
+    <section class="stats-bar py-4" aria-label="Impact numbers">
+      <div class="container-xl">
+        <div class="row text-center gy-4">
+          <div class="col-6 col-md-3 stat-item py-2">
+            <div class="stat-num">500+</div>
+            <div class="stat-label">Women Trained</div>
+          </div>
+          <div class="col-6 col-md-3 stat-item py-2">
+            <div class="stat-num">300+</div>
+            <div class="stat-label">Children Supported</div>
+          </div>
+          <div class="col-6 col-md-3 stat-item py-2">
+            <div class="stat-num">50+</div>
+            <div class="stat-label">Health Camps</div>
+          </div>
+          <div class="col-6 col-md-3 py-2">
+            <div class="stat-num">10k+</div>
+            <div class="stat-label">Families Benefited</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════
+         SERVICES
+    ══════════════════════════════════ -->
+    <section class="services-section py-5" aria-labelledby="services-heading">
+      <div class="container-xl">
+        <div class="text-center mb-5">
+          <p class="section-eyebrow">What We Do</p>
+          <h2 class="section-title display-6 fw-bold" id="services-heading">Our Core Services</h2>
+          <p class="text-muted mx-auto" style="max-width:540px">
+            We offer inclusive and community-focused services designed to empower
+            women, support families, and create sustainable livelihood opportunities.
+          </p>
+        </div>
+        <div class="row g-4">
+          <!-- Card 1 -->
+          <div class="col-sm-6 col-lg-3 fade-up">
+            <div class="service-card card p-0">
+              <img class="card-img-top" src="./asset/skill.png" alt="Skill development illustration" loading="lazy" />
+              <div class="card-body p-4">
+                <div class="service-icon-wrap">
+                  <i class="bi bi-tools" aria-hidden="true"></i>
+                </div>
+                <h3 class="card-title fs-5 fw-semibold">Skill Development &amp; Training</h3>
+                <p class="card-text text-muted small">
+                  Vocational training and skill-building programs in tailoring, handicrafts,
+                  food processing, and digital skills to help women achieve financial independence.
+                </p>
+              </div>
             </div>
           </div>
-        </section>
-      </section>
-
-      <section
-        class="row bg-white d-flex justify-content-evenly align-items-center mt-5 mb-5"
-      >
-        <div class="col-sm-12 card" style="width: 18rem">
-          <img class="card-img-top bg-success" src="./asset/skill.png" alt="" />
-
-          <div class="card-body">
-            <h1 class="fs-4">Skill Development & Training</h1>
-            <p class="text-justify">
-              We provide vocational training and skill-building programs to help
-              women and youth become self-reliant. These programs are designed
-              to create sustainable livelihood opportunities and financial
-              independence.
-            </p>
+          <!-- Card 2 -->
+          <div class="col-sm-6 col-lg-3 fade-up fade-up-delay-1">
+            <div class="service-card card p-0">
+              <img class="card-img-top" src="./asset/education.png" alt="Education illustration" loading="lazy" />
+              <div class="card-body p-4">
+                <div class="service-icon-wrap" style="background:var(--sewa-gold)">
+                  <i class="bi bi-book-half" aria-hidden="true" style="color:var(--sewa-navy)"></i>
+                </div>
+                <h3 class="card-title fs-5 fw-semibold">Education &amp; Child Support</h3>
+                <p class="card-text text-muted small">
+                  Quality learning, school support, and a safe environment for children from
+                  underprivileged families — ensuring a strong foundation for their future.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="col-sm-6 col-lg-3 fade-up fade-up-delay-2">
+            <div class="service-card card p-0">
+              <img class="card-img-top" src="./asset/health.png" alt="Healthcare illustration" loading="lazy" />
+              <div class="card-body p-4">
+                <div class="service-icon-wrap" style="background:#e63946">
+                  <i class="bi bi-heart-pulse" aria-hidden="true"></i>
+                </div>
+                <h3 class="card-title fs-5 fw-semibold">Healthcare &amp; Wellness</h3>
+                <p class="card-text text-muted small">
+                  Basic healthcare support, health awareness programs, and nutrition initiatives
+                  for underserved communities to promote healthy and dignified living.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="col-sm-6 col-lg-3 fade-up fade-up-delay-3">
+            <div class="service-card card p-0">
+              <img class="card-img-top" src="./asset/emp-3.png" alt="Employment support illustration" loading="lazy" />
+              <div class="card-body p-4">
+                <div class="service-icon-wrap" style="background:#0077b6">
+                  <i class="bi bi-briefcase" aria-hidden="true"></i>
+                </div>
+                <h3 class="card-title fs-5 fw-semibold">Employment &amp; Livelihood</h3>
+                <p class="card-text text-muted small">
+                  Connecting individuals with job opportunities, financial guidance, and resources
+                  to improve income stability and long-term economic security.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="col-sm-12 card" style="width: 18rem">
-          <img
-            class="card-img-top bg-success"
-            src="./asset/education.png"
-            alt=""
-          />
-
-          <div class="card-body">
-            <h1 class="fs-4">Education & Child Support</h1>
-            <p class="text-justify">
-              Our education services focus on providing quality learning, school
-              support, and a safe environment for children, ensuring a strong
-              foundation for their future growth and success.
-            </p>
+    <!-- ══════════════════════════════════
+         PORTFOLIO
+    ══════════════════════════════════ -->
+    <section class="portfolio-section py-5" aria-labelledby="portfolio-heading">
+      <div class="container-xl">
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-5">
+          <div>
+            <p class="section-eyebrow" style="color:var(--sewa-gold)">Our Work</p>
+            <h2 class="section-title text-white mb-0" id="portfolio-heading">Featured Projects</h2>
+          </div>
+          <a href="#" class="btn btn-outline-light fw-semibold px-4">More Works <i class="bi bi-arrow-right ms-1"></i></a>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4 fade-up">
+            <div class="portfolio-card p-4">
+              <span class="portfolio-tag">Livelihood</span>
+              <h3>Women Skill Empowerment Program</h3>
+              <p>Training self-employed women in tailoring, handicrafts, food processing, and digital skills to start or expand small businesses and achieve financial independence.</p>
+              <div class="mt-3">
+                <span class="impact-pill"><i class="bi bi-check-circle-fill"></i> 500+ women trained</span>
+                <span class="impact-pill"><i class="bi bi-check-circle-fill"></i> Sustainable income</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 fade-up fade-up-delay-1">
+            <div class="portfolio-card p-4">
+              <span class="portfolio-tag">Education</span>
+              <h3>Child Education &amp; Care Initiative</h3>
+              <p>Supporting children from underprivileged families with access to education, learning materials, and after-school guidance in a safe and supportive environment.</p>
+              <div class="mt-3">
+                <span class="impact-pill"><i class="bi bi-check-circle-fill"></i> 300+ children</span>
+                <span class="impact-pill"><i class="bi bi-check-circle-fill"></i> Better outcomes</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 fade-up fade-up-delay-2">
+            <div class="portfolio-card p-4">
+              <span class="portfolio-tag">Health</span>
+              <h3>Community Health &amp; Wellness Drive</h3>
+              <p>Delivering basic healthcare services, awareness camps, and nutrition support for families, focusing on preventive care and overall community well-being.</p>
+              <div class="mt-3">
+                <span class="impact-pill"><i class="bi bi-check-circle-fill"></i> 50+ health camps</span>
+                <span class="impact-pill"><i class="bi bi-check-circle-fill"></i> Thousands helped</span>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="col-sm-12 card" style="width: 18rem">
-          <img
-            class="card-img-top bg-success"
-            src="./asset/health.png"
-            alt=""
-          />
-
-          <div class="card-body">
-            <h1 class="fs-4">Healthcare & Wellness</h1>
-            <p class="text-justify">
-              We offer basic healthcare support, health awareness programs, and
-              wellness initiatives for families, especially in underserved
-              communities, to promote healthy and dignified living.
-            </p>
-          </div>
-        </div>
-
-        <div class="col-sm-12 card" style="width: 18rem">
-          <img class="card-img-top bg-success" src="./asset/emp-3.png" alt="" />
-
-          <div class="card-body">
-            <h1 class="fs-4">Employment & Livelihood Support</h1>
-            <p class="text-justify">
-              We assist individuals and self-employed workers by connecting them
-              with job opportunities, resources, and financial guidance to
-              improve income stability and long-term security.
-            </p>
-          </div>
-        </div>
-      </section>
-      <section class="row bg-secondary py-5">
-        <div
-          class="row m-2 d-flex align-items-center justify-content-around container-fluid"
-        >
-          <div class="col-6 text-warning fw-5 fs-3">Our Portfolio</div>
-          <div class="col-3 fs-4">
-            <p class="float-end bg-primary rounded-3 p-2 text-white">
-              More Works
-            </p>
-          </div>
-        </div>
-        <div class="row d-flex align-items-center justify-content-evenly">
-          <div class="col-3">
-            <h1 class="fs-3 m-0">Women Skill Empowerment Program</h1>
-            <p class="m-0">
-              This project focuses on training self-employed women in tailoring,
-              handicrafts, food processing, and digital skills. The goal is to
-              help women start or expand their own small businesses and achieve
-              financial independence.
-            </p>
-            <h2 class="fs-4 m-0">Impact:</h2>
-            <p class="m-0">500+ women trained</p>
-            <p class="m-0">Sustainable income opportunities created</p>
-          </div>
-          <div class="col-3">
-            <h1 class="fs-3 m-0">Child Education & Care Initiative</h1>
-            <p class="m-0">
-              Through this project, we support children from underprivileged
-              families by providing access to education, learning materials, and
-              after-school guidance in a safe and supportive environment.
-            </p>
-            <h2 class="fs-4 m-0">Impact:</h2>
-            <p class="m-0">300+ children supported</p>
-            <p class="m-0">Improved school attendance and learning outcomes</p>
-          </div>
-          <div class="col-3">
-            <h1 class="fs-3 m-0">Community Health & Wellness Drive</h1>
-            <p class="m-0">
-              This initiative delivers basic healthcare services, health
-              awareness camps, and nutrition support for families, focusing on
-              preventive care and overall community well-being.
-            </p>
-            <h2 class="fs-4 m-0">Impact:</h2>
-            <p class="m-0">50+ health camps organized</p>
-            <p class="m-0">Thousands of families benefited</p>
-          </div>
-        </div>
-      </section>
-      <section
-        class="row bg-white text-center d-flex align-items-center justify-content-center py-5"
-      >
-        <h1 class="text-uppercase text-info">what we offer</h1>
-        <p class="text-black fs-5 w-50">
-          We offer inclusive and community-focused services designed to empower
-          women, support families, and create sustainable livelihood
-          opportunities. Our programs aim to improve education, health, and
-          employment while promoting self-reliance and dignity for all.
-        </p>
-      </section>
-      <section class="row d-flex justify-content-evenly align-items-start">
-        <div class="col-2">
-          <h1 class="text-info fs-4">Clean & Professional</h1>
-          <p class="fs-5">
-            We offer inclusive and community-focused services designed to
-            empower women, support families, and create sustainable livelihood
-            opportunities.
+    <!-- ══════════════════════════════════
+         WHAT WE OFFER
+    ══════════════════════════════════ -->
+    <section class="offer-section py-5" aria-labelledby="offer-heading">
+      <div class="container-xl">
+        <div class="text-center mb-5">
+          <p class="section-eyebrow">Why Choose Us</p>
+          <h2 class="section-title display-6 fw-bold text-uppercase" id="offer-heading" style="color:var(--sewa-navy)">What We Offer</h2>
+          <p class="text-muted mx-auto" style="max-width:540px">
+            Inclusive, community-focused services designed to empower women, support families,
+            and create sustainable livelihood opportunities with dignity for all.
           </p>
         </div>
-        <div class="col-2">
-          <h1 class="text-info fs-4">Warm & Impact-Driven</h1>
-          <p class="fs-5">
-            Our services are built to uplift communities by providing skills,
-            education, healthcare, and employment support.
-          </p>
+        <div class="row g-4">
+          <div class="col-sm-6 col-xl-3 fade-up">
+            <div class="offer-card">
+              <h3>Clean &amp; Professional</h3>
+              <p>Inclusive and community-focused services designed to empower women, support families, and create sustainable livelihood opportunities.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3 fade-up fade-up-delay-1">
+            <div class="offer-card">
+              <h3>Warm &amp; Impact-Driven</h3>
+              <p>Our services uplift communities by providing skills, education, healthcare, and employment support where they matter most.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3 fade-up fade-up-delay-2">
+            <div class="offer-card">
+              <h3>Short &amp; Modern</h3>
+              <p>Practical solutions that empower individuals, strengthen families, and build a more inclusive and resilient society.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3 fade-up fade-up-delay-3">
+            <div class="offer-card">
+              <h3>NGO-Focused</h3>
+              <p>We deliver essential services that address social, educational, and economic challenges faced by underserved communities.</p>
+            </div>
+          </div>
         </div>
-        <div class="col-2">
-          <h1 class="text-info fs-4">Short & Modern</h1>
-          <p class="fs-5">
-            We provide practical solutions that empower individuals, strengthen
-            families, and build a more inclusive society.
-          </p>
+      </div>
+    </section>
+
+    <hr class="my-0" />
+
+    <!-- ══════════════════════════════════
+         TESTIMONIALS
+    ══════════════════════════════════ -->
+    <section class="testimonials-section py-5" aria-labelledby="testimonial-heading">
+      <div class="container-xl">
+        <div class="text-center mb-5">
+          <p class="section-eyebrow">Voices</p>
+          <h2 class="section-title display-6 fw-bold" id="testimonial-heading" style="color:var(--sewa-navy)">Testimonials</h2>
         </div>
-        <div class="col-2">
-          <h1 class="text-info fs-4">NGO-Focused</h1>
-          <p class="fs-5">
-            Our organization delivers essential services that address social,
-            educational, and economic challenges.
-          </p>
-        </div>
-      </section>
-      <hr />
-      <section class="row " style="padding-bottom: 3vw;">
-        <h1 class="text-info text-center">TESTIMONIALS</h1>
-        <div class="row d-flex justify-content-center">
-          <p class="text-center fs-4 w-50 fw-2">
+        <div class="testimonial-card fade-up">
+          <div class="quote-icon" aria-hidden="true">"</div>
+          <blockquote class="mb-3">
             SEWA gave me the skills and confidence to start my own small
             business. Today, I can support my family with dignity and pride.
-          </p>
+          </blockquote>
+          <p class="fw-bold mb-0" style="color:var(--sewa-gold)">Ashish Singh</p>
+          <p class="text-muted small">CEO of SEWA</p>
         </div>
-        <p class="text-center fs-5 text-warning fw-3">
-          Ashish Singh / CEO of SEWA
-        </p>
 
-        <div class="row d-flex align-items-center justify-content-center">
-          <div class="col-3 d-flex justify-content-between">
-            <div class="rounded-circle bg-warning img">
-              <img style="width: 100%; border-radius: 50%;" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D" alt="">
-            </div>
-            <div class="rounded-circle bg-warning img">
-                           <img style="width: 100%; border-radius: 50%;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3-Ed4-3CnbmDqsOD8a9VJwcC5wN7HV47H1A&s" alt="">
-            </div>
-            <div class="rounded-circle bg-warning img">
-
-
-               <img style="width: 100%;height: 110%; object-fit: cover; object-position: center; border-radius: 50%;" src="https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D" alt="">
-            </div>
+        <!-- Avatar row -->
+        <div class="testimonial-avatars d-flex gap-3 justify-content-center mt-4" aria-label="Testimonial contributors">
+          <div class="avatar-wrap">
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=128&q=80&auto=format&fit=crop" alt="Contributor 1" loading="lazy" />
+          </div>
+          <div class="avatar-wrap">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3-Ed4-3CnbmDqsOD8a9VJwcC5wN7HV47H1A&s" alt="Contributor 2" loading="lazy" />
+          </div>
+          <div class="avatar-wrap">
+            <img src="https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?w=128&q=80&auto=format&fit=crop" alt="Contributor 3" loading="lazy" />
           </div>
         </div>
-      </section>
-      <footer
-        class="row bg-secondary px-5 py-5 d-flex justify-content-around"
-      >
-        <div class="col-2">
-          <h1 class="fs-3 text-white px-3">About Us</h1>
-          <ul>
-            <li class="list-unstyled">
-              <a class=" aa text-decoration-none" href="">About SEWA</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class=" aa text-decoration-none" href="">Our Mission</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class=" aa text-decoration-none" href="">Our Vision</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class=" aa text-decoration-none text-white" href="">Our Impact</a>
-            </li>
-          </ul>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════
+         FOOTER
+    ══════════════════════════════════ -->
+    <footer class="pt-5 pb-3" role="contentinfo">
+      <div class="container-xl">
+        <div class="row g-5 pb-4">
+          <!-- Brand blurb -->
+          <div class="col-lg-3 col-md-6">
+            <img src="./asset/ngo-logo.png" alt="SEWA" height="56" class="mb-3 bg-white rounded p-1" loading="lazy" />
+            <p style="color:rgba(255,255,255,.65);font-size:.9rem;line-height:1.7">
+              Empowering families and building a stronger society through
+              skill development, education, healthcare, and employment support.
+            </p>
+            <div class="d-flex gap-2 mt-3">
+              <a href="#" class="social-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="social-btn" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="social-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+
+          <!-- About Us -->
+          <div class="col-lg-2 col-md-6 col-sm-6">
+            <h5>About Us</h5>
+            <a href="#">About SEWA</a>
+            <a href="#">Our Mission</a>
+            <a href="#">Our Vision</a>
+            <a href="#">Our Impact</a>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="col-lg-2 col-md-6 col-sm-6">
+            <h5>Quick Links</h5>
+            <a href="index.html">Home</a>
+            <a href="#">What We Offer</a>
+            <a href="about.html">Projects</a>
+            <a href="blog.html">Testimonials</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+
+          <!-- Services -->
+          <div class="col-lg-2 col-md-6 col-sm-6">
+            <h5>Our Services</h5>
+            <a href="#">Skill Development</a>
+            <a href="#">Education Support</a>
+            <a href="#">Health &amp; Wellness</a>
+            <a href="#">Employment Assistance</a>
+          </div>
+
+          <!-- Contact -->
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <h5>Contact Info</h5>
+            <p class="d-flex align-items-start gap-2 small" style="color:rgba(255,255,255,.65)">
+              <i class="bi bi-geo-alt-fill mt-1" style="color:var(--sewa-gold)"></i>
+              123 SEWA Nagar, Sultanpur, Uttar Pradesh, India
+            </p>
+            <p class="d-flex align-items-center gap-2 small" style="color:rgba(255,255,255,.65)">
+              <i class="bi bi-telephone-fill" style="color:var(--sewa-gold)"></i>
+              +91 98765 43210
+            </p>
+            <p class="d-flex align-items-center gap-2 small" style="color:rgba(255,255,255,.65)">
+              <i class="bi bi-envelope-fill" style="color:var(--sewa-gold)"></i>
+              info@sewaorganization.org
+            </p>
+            <p class="d-flex align-items-center gap-2 small" style="color:rgba(255,255,255,.65)">
+              <i class="bi bi-clock-fill" style="color:var(--sewa-gold)"></i>
+              Mon–Sat, 9 AM – 6 PM
+            </p>
+          </div>
         </div>
-        <div class="col-2">
-          <h1 class="fs-3 text-white">Quick Links</h1>
-          <ul>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="index.html">Home</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="">What We Offer</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="about.html">Projects</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="blog.html">Testimonials</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="contact.html">Contact Us</a>
-            </li>
-          </ul>
+
+        <div class="footer-bottom pt-3 text-center">
+          <p class="mb-0">&copy; 2025 SEWA – Self Employed Women's Association. All rights reserved.</p>
         </div>
-        <div class="col-2">
-          <h1 class="fs-3 text-white">Our Services</h1>
-          <ul>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="">Skill Development</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="">Education Support</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="">Health & Wellness</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="">Employment Assistance</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-2">
-          <h1 class="fs-3 text-white">Contact Info</h1>
-          <ul class="float-start">
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="">Address</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="">Phone Number</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="">Email</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="">Working Hours</a>
-            </li>
-            <hr>
-          </ul>
-        </div>
-      </footer>
-    </div>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-  AOS.init();
-</script>
+      // Scroll-triggered fade-up
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
   </body>
 </html>

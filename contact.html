@@ -3,323 +3,722 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
-    />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <meta name="description" content="Contact SEWA – Reach out to volunteer, donate, partner, or learn more about our community programs across India." />
+    <meta name="keywords" content="Contact SEWA, NGO contact, volunteer, donate, women empowerment India" />
+    <meta name="theme-color" content="#1a7a4a" />
+    <title>Contact Us – SEWA | Empowering Families, Building Society</title>
+
+    <meta property="og:title" content="Contact SEWA – Get In Touch" />
+    <meta property="og:description" content="Reach out to volunteer, support our work, or simply learn more about SEWA." />
+    <meta property="og:type" content="website" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
     <style>
+      /* ── Design tokens ── */
+      :root {
+        --sewa-green:  #1a7a4a;
+        --sewa-gold:   #e8a020;
+        --sewa-navy:   #0d2240;
+        --sewa-light:  #f4f8f5;
+        --sewa-card-shadow: 0 4px 24px rgba(13,34,64,.10);
+        --font-display: 'Playfair Display', Georgia, serif;
+        --font-body:    'DM Sans', sans-serif;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; }
       body {
-        background-color: rgb(212, 205, 205);
+        font-family: var(--font-body);
+        color: #1c2b1e;
+        background: #fff;
+        overflow-x: hidden;
       }
-      li a {
-        color: black;
-      }
-      .li {
-        transition: all 1s;
-      }
-      .li:hover {
-        background-color: blue;
-        color: white;
-        padding: 2px 4px;
-      }
-      .aa{
-        color: white !important;
-      }
-      .aa:hover {
-        color: blue !important;
-      }
-      .work-agri {
-        background-image: url("work-agri.jpg");
-        background-position: center;
-        background-size: cover;
-      }
-      * {
-        margin: 0;
-        padding: 0;
-      }
-      .hero {
-        background-color: rgb(202, 194, 194, 0.3);
-        backdrop-filter: blur(2px);
-      }
-      .img {
-        height: 100px;
-        width: 100px;
+
+      /* ── Navbar ── */
+      .navbar { border-bottom: 2px solid var(--sewa-green); }
+      .navbar-brand img { height: 56px; width: auto; object-fit: contain; }
+      .nav-link {
+        font-weight: 500;
+        color: #1c2b1e !important;
         position: relative;
-        padding-bottom: 5px;
+        padding-bottom: .35rem !important;
       }
-      .img::after {
-        content: "";
-        position: absolute;
-        bottom: -10px;
-        left: 0;
-        width: 10px;
-        height: 5px;
-        background-color: grey;
-        transition: width 0.5s;
-        border-radius: 5px;
+      .nav-link::after {
+        content: '';
+        position: absolute; bottom: 0; left: 50%;
+        width: 0; height: 2px;
+        background: var(--sewa-green);
+        transition: width .3s, left .3s;
+        border-radius: 2px;
       }
-      .img:hover::after {
-        width: 100px;
-        background-color: orangered;
+      .nav-link:hover::after,
+      .nav-link:focus::after,
+      .nav-link.active::after { width: 100%; left: 0; }
+      .nav-link:hover,
+      .nav-link:focus { color: var(--sewa-green) !important; }
+      .nav-link.active { color: var(--sewa-green) !important; font-weight: 600; }
+      .btn-blog {
+        background: #dc3545; color: #fff; font-weight: 600;
+        border: none; border-radius: .5rem; padding: .4rem 1.2rem;
+        transition: background .2s, transform .15s;
       }
-      .ii {
-        height: 70px;
+      .btn-blog:hover { background: #b02a37; transform: translateY(-1px); color: #fff; }
+
+      /* ── Page hero ── */
+      .contact-hero {
+        background: linear-gradient(135deg, var(--sewa-navy) 0%, var(--sewa-green) 100%);
+        padding: 5rem 0 3.5rem;
+        position: relative;
+        overflow: hidden;
       }
+      .contact-hero::before {
+        content: '';
+        position: absolute; inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      }
+      .contact-hero-badge {
+        display: inline-block;
+        background: var(--sewa-gold); color: var(--sewa-navy);
+        font-weight: 700; font-size: .78rem; letter-spacing: .1em;
+        padding: .3rem .9rem; border-radius: 2rem;
+        text-transform: uppercase; margin-bottom: 1rem;
+      }
+      .contact-hero h1 {
+        font-family: var(--font-display);
+        color: #fff; font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.2;
+      }
+      .contact-hero p { color: rgba(255,255,255,.82); max-width: 540px; }
+
+      /* ── Breadcrumb ── */
+      .breadcrumb-item a { color: var(--sewa-gold); text-decoration: none; }
+      .breadcrumb-item.active { color: rgba(255,255,255,.7); }
+      .breadcrumb-item + .breadcrumb-item::before { color: rgba(255,255,255,.5); }
+
+      /* ── Contact info cards ── */
+      .info-card {
+        border: none;
+        border-radius: 1rem;
+        padding: 1.6rem 1.4rem;
+        background: var(--sewa-light);
+        height: 100%;
+        transition: transform .25s, box-shadow .25s;
+        text-align: center;
+      }
+      .info-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--sewa-card-shadow);
+      }
+      .info-icon {
+        width: 56px; height: 56px;
+        border-radius: 50%;
+        background: var(--sewa-green);
+        display: flex; align-items: center; justify-content: center;
+        margin: 0 auto .9rem;
+        transition: background .2s;
+      }
+      .info-card:hover .info-icon { background: var(--sewa-gold); }
+      .info-card:hover .info-icon i { color: var(--sewa-navy); }
+      .info-icon i { font-size: 1.3rem; color: #fff; }
+      .info-card h3 { font-family: var(--font-display); font-size: 1rem; color: var(--sewa-navy); margin-bottom: .4rem; }
+      .info-card p { font-size: .92rem; color: #3d5244; margin: 0; line-height: 1.6; }
+      .info-card a { color: var(--sewa-green); text-decoration: none; }
+      .info-card a:hover { color: var(--sewa-navy); text-decoration: underline; }
+
+      /* ── Contact form panel ── */
+      .contact-panel {
+        background: #fff;
+        border-radius: 1.2rem;
+        box-shadow: var(--sewa-card-shadow);
+        padding: 2.5rem;
+      }
+      .form-label { font-weight: 600; font-size: .9rem; color: var(--sewa-navy); margin-bottom: .35rem; }
+      .form-control, .form-select {
+        border-color: #d4e8da;
+        border-radius: .6rem;
+        font-size: .95rem;
+        padding: .65rem 1rem;
+        transition: border-color .2s, box-shadow .2s;
+      }
+      .form-control:focus, .form-select:focus {
+        border-color: var(--sewa-green);
+        box-shadow: 0 0 0 .2rem rgba(26,122,74,.18);
+      }
+      textarea.form-control { resize: vertical; min-height: 130px; }
+      .btn-sewa-primary {
+        background: var(--sewa-green); color: #fff; border: none;
+        font-weight: 600; border-radius: .6rem; padding: .75rem 2rem;
+        font-size: 1rem; transition: background .2s, transform .15s;
+        width: 100%;
+      }
+      .btn-sewa-primary:hover { background: #155c38; color: #fff; transform: translateY(-1px); }
+
+      /* ── Sidebar panel ── */
+      .sidebar-panel {
+        background: var(--sewa-navy);
+        border-radius: 1.2rem;
+        padding: 2.5rem 2rem;
+        height: 100%;
+      }
+      .sidebar-panel h2 {
+        font-family: var(--font-display); color: #fff;
+        font-size: 1.35rem; margin-bottom: 1.4rem;
+      }
+      .contact-detail {
+        display: flex; gap: 1rem; align-items: flex-start;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(255,255,255,.1);
+      }
+      .contact-detail:last-of-type { border-bottom: none; }
+      .cd-icon {
+        width: 40px; height: 40px; flex-shrink: 0;
+        border-radius: 50%; background: rgba(255,255,255,.1);
+        display: flex; align-items: center; justify-content: center;
+        transition: background .2s;
+      }
+      .contact-detail:hover .cd-icon { background: var(--sewa-gold); }
+      .contact-detail:hover .cd-icon i { color: var(--sewa-navy); }
+      .cd-icon i { font-size: 1rem; color: var(--sewa-gold); }
+      .cd-label { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--sewa-gold); margin-bottom: .2rem; }
+      .cd-value { font-size: .92rem; color: rgba(255,255,255,.85); line-height: 1.5; }
+      .cd-value a { color: rgba(255,255,255,.85); text-decoration: none; }
+      .cd-value a:hover { color: var(--sewa-gold); }
+
+      .social-row { margin-top: 1.5rem; }
+      .social-row p { color: rgba(255,255,255,.6); font-size: .82rem; margin-bottom: .7rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; }
+      .social-btn {
+        display: inline-flex; align-items: center; justify-content: center;
+        width: 38px; height: 38px; border-radius: 50%;
+        background: rgba(255,255,255,.10); color: #fff;
+        text-decoration: none; font-size: 1rem;
+        transition: background .2s, transform .2s;
+      }
+      .social-btn:hover { background: var(--sewa-gold); color: var(--sewa-navy); transform: translateY(-2px); }
+
+      /* ── Map section ── */
+      .map-section { background: var(--sewa-light); }
+      .map-placeholder {
+        border-radius: 1rem; overflow: hidden;
+        background: #d4e8da;
+        min-height: 320px;
+        display: flex; align-items: center; justify-content: center;
+        flex-direction: column; gap: .7rem;
+      }
+      .map-placeholder i { font-size: 3.5rem; color: var(--sewa-green); opacity: .5; }
+      .map-placeholder p { color: #4a5c50; font-size: .92rem; margin: 0; }
+
+      /* ── FAQ accordion ── */
+      .faq-section { background: #fff; }
+      .accordion-button:not(.collapsed) {
+        background: var(--sewa-light);
+        color: var(--sewa-green);
+        box-shadow: none;
+      }
+      .accordion-button:focus { box-shadow: 0 0 0 .2rem rgba(26,122,74,.15); }
+      .accordion-button::after { filter: none; }
+      .accordion-item { border: 1px solid #d4e8da; border-radius: .75rem !important; margin-bottom: .75rem; overflow: hidden; }
+      .accordion-item:last-child { margin-bottom: 0; }
+
+      /* ── Footer ── */
+      footer { background: var(--sewa-navy); color: rgba(255,255,255,.8); }
+      footer h5 {
+        font-family: var(--font-display); color: #fff; font-size: 1.1rem;
+        margin-bottom: 1.1rem; padding-bottom: .5rem;
+        border-bottom: 2px solid var(--sewa-gold); display: inline-block;
+      }
+      footer a {
+        color: rgba(255,255,255,.75); text-decoration: none;
+        font-size: .93rem; transition: color .2s, padding-left .2s;
+        display: block; padding: .22rem 0;
+      }
+      footer a:hover { color: var(--sewa-gold); padding-left: 6px; }
+      .footer-bottom { border-top: 1px solid rgba(255,255,255,.12); font-size: .85rem; color: rgba(255,255,255,.5); }
+
+      /* ── Scroll animation ── */
+      @media (prefers-reduced-motion: no-preference) {
+        .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .5s ease, transform .5s ease; }
+        .fade-up.visible { opacity: 1; transform: none; }
+        .delay-1 { transition-delay: .1s; }
+        .delay-2 { transition-delay: .2s; }
+        .delay-3 { transition-delay: .3s; }
+      }
+
+      /* ── Section labels ── */
+      .section-eyebrow {
+        font-size: .8rem; font-weight: 700; letter-spacing: .12em;
+        text-transform: uppercase; color: var(--sewa-green); margin-bottom: .4rem;
+      }
+
+      /* ── Success toast ── */
+      #successToast { min-width: 280px; }
     </style>
   </head>
-  <body class="bg-secondary-emphasis">
-    <div class="container-fluid " >
-      <nav
-        class="container-fluid navbar bg-light border-body position-sticky top-0 z-3"
-        data-bs-theme="dark"
-      >
-        <img class="img-fluid ii mx-5" src="./asset/ngo-logo.png" alt="" />
-        <ul
-          class="d-flex align-item-center justify-content-between col-6 list-unstyled"
-        >
-          <li class="li">
-            <a class="text-decoration-none fs-5" href="index.html"> Home </a>
-          </li>
-          <li class="li">
-            <a class="text-decoration-none fs-5" href=""> Portfolio </a>
-          </li>
-          <li class="li">
-            <a class="text-decoration-none fs-5" href="about.html"> About </a>
-          </li>
-          <li class="li">
-            <a class="text-decoration-none fs-5" href="contact.html">
-              Contact
+  <body>
+
+    <!-- ══════════════════════════════════
+         NAVBAR
+    ══════════════════════════════════ -->
+    <nav class="navbar navbar-expand-lg bg-white sticky-top shadow-sm" aria-label="Main navigation">
+      <div class="container-xl">
+        <a class="navbar-brand" href="index.html" aria-label="SEWA Home">
+          <img src="./asset/ngo-logo.png" alt="SEWA Logo" />
+        </a>
+
+        <button class="navbar-toggler border-0" type="button"
+          data-bs-toggle="collapse" data-bs-target="#mainNav"
+          aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav mx-auto gap-lg-2">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Portfolio</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link active" href="contact.html" aria-current="page">Contact</a></li>
+            <li class="nav-item ms-lg-2">
+              <a class="btn btn-blog" href="blog.html">BLOG</a>
+            </li>
+          </ul>
+          <form class="d-flex gap-2 mt-3 mt-lg-0" role="search" aria-label="Site search">
+            <input class="form-control form-control-sm" type="search" placeholder="Search…" aria-label="Search" />
+            <button class="btn btn-sm btn-sewa-primary" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ══════════════════════════════════
+         PAGE HERO
+    ══════════════════════════════════ -->
+    <header class="contact-hero" aria-label="Contact page hero">
+      <div class="container-xl position-relative">
+        <nav aria-label="breadcrumb" class="mb-3">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+          </ol>
+        </nav>
+        <span class="contact-hero-badge">Get In Touch</span>
+        <h1 class="mb-3">We'd Love to<br>Hear From You</h1>
+        <p class="mb-0">
+          Whether you want to volunteer, support our work, or simply learn more —
+          reach out and we'll get back to you as soon as possible.
+        </p>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ══════════════════════════════════
+           CONTACT INFO CARDS
+      ══════════════════════════════════ -->
+      <section class="py-5" style="background:var(--sewa-light)" aria-labelledby="contact-info-heading">
+        <div class="container-xl">
+          <div class="text-center mb-5">
+            <p class="section-eyebrow">Reach Us</p>
+            <h2 class="fw-bold" id="contact-info-heading"
+              style="font-family:var(--font-display);color:var(--sewa-navy)">
+              Contact Information
+            </h2>
+          </div>
+          <div class="row g-4 justify-content-center">
+
+            <div class="col-sm-6 col-lg-3 fade-up">
+              <div class="info-card">
+                <div class="info-icon"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i></div>
+                <h3>Our Address</h3>
+                <p>123 Aliganj, Lucknow<br>Uttar Pradesh, India</p>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3 fade-up delay-1">
+              <div class="info-card">
+                <div class="info-icon"><i class="bi bi-telephone-fill" aria-hidden="true"></i></div>
+                <h3>Phone Number</h3>
+                <p><a href="tel:+916307215600">+91 6307 215 600</a></p>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3 fade-up delay-2">
+              <div class="info-card">
+                <div class="info-icon"><i class="bi bi-envelope-fill" aria-hidden="true"></i></div>
+                <h3>Email Address</h3>
+                <p><a href="mailto:ashishsingh229215@gmail.com">ashishsingh229215@gmail.com</a></p>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3 fade-up delay-3">
+              <div class="info-card">
+                <div class="info-icon"><i class="bi bi-clock-fill" aria-hidden="true"></i></div>
+                <h3>Working Hours</h3>
+                <p>Monday – Saturday<br>9:00 AM – 6:00 PM IST</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════
+           CONTACT FORM + SIDEBAR
+      ══════════════════════════════════ -->
+      <section class="py-5" aria-labelledby="form-heading">
+        <div class="container-xl">
+          <div class="row g-5 align-items-start">
+
+            <!-- ── Contact form ── -->
+            <div class="col-lg-7 fade-up">
+              <div class="contact-panel">
+                <p class="section-eyebrow">Send a Message</p>
+                <h2 class="fw-bold mb-4" id="form-heading"
+                  style="font-family:var(--font-display);color:var(--sewa-navy)">
+                  Contact Us
+                </h2>
+
+                <form id="contactForm" novalidate aria-label="Contact form">
+                  <div class="row g-3">
+
+                    <div class="col-sm-6">
+                      <label for="fullName" class="form-label">Full Name <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" id="fullName"
+                        placeholder="e.g. Priya Sharma" required
+                        autocomplete="name" aria-required="true" />
+                      <div class="invalid-feedback">Please enter your full name.</div>
+                    </div>
+
+                    <div class="col-sm-6">
+                      <label for="emailAddress" class="form-label">Email Address <span class="text-danger">*</span></label>
+                      <input type="email" class="form-control" id="emailAddress"
+                        placeholder="e.g. priya@example.com" required
+                        autocomplete="email" aria-required="true" />
+                      <div class="invalid-feedback">Please enter a valid email address.</div>
+                    </div>
+
+                    <div class="col-sm-6">
+                      <label for="phoneNumber" class="form-label">Phone Number</label>
+                      <div class="input-group">
+                        <span class="input-group-text" style="border-color:#d4e8da;border-radius:.6rem 0 0 .6rem">
+                          <i class="bi bi-telephone" style="color:var(--sewa-green)"></i>
+                        </span>
+                        <input type="tel" class="form-control" id="phoneNumber"
+                          placeholder="+91 XXXXX XXXXX"
+                          autocomplete="tel"
+                          pattern="[0-9+\s\-()]+"
+                          style="border-radius:0 .6rem .6rem 0" />
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                      <label for="connectType" class="form-label">How Would You Like to Connect? <span class="text-danger">*</span></label>
+                      <select class="form-select" id="connectType" required aria-required="true">
+                        <option value="" selected disabled>Select an option…</option>
+                        <option value="volunteer">Volunteer with Us</option>
+                        <option value="donate">Donate / Support Our Work</option>
+                        <option value="partner">Partnership / Collaboration</option>
+                        <option value="skill">Skill Training Inquiry</option>
+                        <option value="education">Education &amp; Child Support Inquiry</option>
+                        <option value="health">Healthcare &amp; Wellness Support</option>
+                      </select>
+                      <div class="invalid-feedback">Please select how you'd like to connect.</div>
+                    </div>
+
+                    <div class="col-12">
+                      <label for="message" class="form-label">Your Message <span class="text-danger">*</span></label>
+                      <textarea class="form-control" id="message"
+                        placeholder="Tell us a bit about yourself and how we can help…"
+                        rows="5" required aria-required="true"></textarea>
+                      <div class="invalid-feedback">Please enter your message.</div>
+                    </div>
+
+                    <!-- Honeypot (spam protection, hidden from users) -->
+                    <div class="d-none" aria-hidden="true">
+                      <input type="text" name="website" tabindex="-1" autocomplete="off" />
+                    </div>
+
+                    <div class="col-12 mt-2">
+                      <button type="submit" class="btn btn-sewa-primary d-flex align-items-center justify-content-center gap-2">
+                        <i class="bi bi-send-fill"></i> Send Message
+                      </button>
+                    </div>
+
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- ── Sidebar ── -->
+            <div class="col-lg-5 fade-up delay-1">
+              <div class="sidebar-panel">
+                <h2>Get Directly In Touch</h2>
+
+                <div class="contact-detail">
+                  <div class="cd-icon"><i class="bi bi-geo-alt-fill"></i></div>
+                  <div>
+                    <div class="cd-label">Address</div>
+                    <div class="cd-value">123 Aliganj, Lucknow<br>Uttar Pradesh – 226024, India</div>
+                  </div>
+                </div>
+
+                <div class="contact-detail">
+                  <div class="cd-icon"><i class="bi bi-telephone-fill"></i></div>
+                  <div>
+                    <div class="cd-label">Phone</div>
+                    <div class="cd-value"><a href="tel:+916307215600">+91 6307 215 600</a></div>
+                  </div>
+                </div>
+
+                <div class="contact-detail">
+                  <div class="cd-icon"><i class="bi bi-envelope-fill"></i></div>
+                  <div>
+                    <div class="cd-label">Email</div>
+                    <div class="cd-value">
+                      <a href="mailto:ashishsingh229215@gmail.com">ashishsingh229215@gmail.com</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="contact-detail">
+                  <div class="cd-icon"><i class="bi bi-clock-fill"></i></div>
+                  <div>
+                    <div class="cd-label">Working Hours</div>
+                    <div class="cd-value">Monday – Saturday<br>9:00 AM – 6:00 PM IST</div>
+                  </div>
+                </div>
+
+                <div class="social-row">
+                  <p>Follow Us</p>
+                  <div class="d-flex gap-2">
+                    <a href="#" class="social-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="social-btn" aria-label="Twitter / X"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="social-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                    <a href="#" class="social-btn" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════
+           MAP PLACEHOLDER
+      ══════════════════════════════════ -->
+      <section class="map-section py-5" aria-labelledby="map-heading">
+        <div class="container-xl">
+          <div class="text-center mb-4">
+            <p class="section-eyebrow">Find Us</p>
+            <h2 class="fw-bold" id="map-heading"
+              style="font-family:var(--font-display);color:var(--sewa-navy)">
+              Our Location
+            </h2>
+          </div>
+          <div class="map-placeholder fade-up" role="img" aria-label="Map showing SEWA office location in Aliganj, Lucknow">
+            <i class="bi bi-map" aria-hidden="true"></i>
+            <p>123 Aliganj, Lucknow, Uttar Pradesh</p>
+            <a href="https://maps.google.com/?q=Aliganj,Lucknow" target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-sm mt-1"
+              style="background:var(--sewa-green);color:#fff;border-radius:.5rem;font-weight:600">
+              <i class="bi bi-box-arrow-up-right me-1"></i>Open in Google Maps
             </a>
-          </li>
-          <button class="bg-danger fs-5 px-4 rounded-3 border-0">
-            <a class="text-decoration-none fs-5 text-white" href="blog.html"
-              >BLOG</a
-            >
-          </button>
-        </ul>
+          </div>
+        </div>
+      </section>
 
-        <form class="d-flex" role="search">
-          <input
-            class="form-control me-2 bg-white text-black"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </nav>
-      <div class="row mt-5">
-        <h1 class="text-center text-success">Get In Touch With Us</h1>
-        <div class="row d-flex justify-content-center">
-          <p class="w-75 text-center fw-2 fs-5 fst-italic">
-            We would love to hear from you. Whether you want to volunteer,
-            support our work, or simply learn more, reach out to us and we’ll
-            get back to you soon.
-          </p>
+      <!-- ══════════════════════════════════
+           FAQ
+      ══════════════════════════════════ -->
+      <section class="faq-section py-5" aria-labelledby="faq-heading">
+        <div class="container-xl">
+          <div class="text-center mb-5">
+            <p class="section-eyebrow">Common Questions</p>
+            <h2 class="fw-bold" id="faq-heading"
+              style="font-family:var(--font-display);color:var(--sewa-navy)">
+              Frequently Asked Questions
+            </h2>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="accordion" id="faqAccordion">
+
+                <div class="accordion-item fade-up">
+                  <h3 class="accordion-header">
+                    <button class="accordion-button" type="button"
+                      data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true">
+                      How can I volunteer with SEWA?
+                    </button>
+                  </h3>
+                  <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-muted">
+                      You can volunteer by filling out the contact form above and selecting
+                      "Volunteer with Us". Our team will reach out to understand your skills
+                      and match you with the right program.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item fade-up delay-1">
+                  <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button"
+                      data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false">
+                      How can I donate or support SEWA's work?
+                    </button>
+                  </h3>
+                  <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-muted">
+                      Select "Donate / Support Our Work" in the form above and send us a
+                      message. We'll share our official donation channels, bank details, and
+                      CSR partnership options.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item fade-up delay-2">
+                  <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button"
+                      data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false">
+                      How long does it take to receive a response?
+                    </button>
+                  </h3>
+                  <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-muted">
+                      We typically respond within 1–2 working days. For urgent matters,
+                      please call us directly on the number listed above.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item fade-up delay-3">
+                  <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button"
+                      data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false">
+                      Can organisations partner with SEWA?
+                    </button>
+                  </h3>
+                  <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-muted">
+                      Yes — NGOs, corporates, and educational institutions are welcome to
+                      explore collaboration. Select "Partnership / Collaboration" in the form
+                      and our partnerships team will be in touch.
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ══════════════════════════════════
+         FOOTER
+    ══════════════════════════════════ -->
+    <footer class="pt-5 pb-3" role="contentinfo">
+      <div class="container-xl">
+        <div class="row g-5 pb-4">
+          <div class="col-lg-3 col-md-6">
+            <img src="./asset/ngo-logo.png" alt="SEWA" height="56"
+              class="mb-3 bg-white rounded p-1" loading="lazy" />
+            <p style="color:rgba(255,255,255,.65);font-size:.9rem;line-height:1.7">
+              Empowering families and building a stronger society through skill development,
+              education, healthcare, and employment support.
+            </p>
+            <div class="d-flex gap-2 mt-3">
+              <a href="#" class="social-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="social-btn" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="social-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6 col-sm-6">
+            <h5>About Us</h5>
+            <a href="#">About SEWA</a>
+            <a href="#">Our Mission</a>
+            <a href="#">Our Vision</a>
+            <a href="#">Our Impact</a>
+          </div>
+          <div class="col-lg-2 col-md-6 col-sm-6">
+            <h5>Quick Links</h5>
+            <a href="index.html">Home</a>
+            <a href="#">What We Offer</a>
+            <a href="about.html">Projects</a>
+            <a href="blog.html">Testimonials</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+          <div class="col-lg-2 col-md-6 col-sm-6">
+            <h5>Our Services</h5>
+            <a href="#">Skill Development</a>
+            <a href="#">Education Support</a>
+            <a href="#">Health &amp; Wellness</a>
+            <a href="#">Employment Assistance</a>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <h5>Contact Info</h5>
+            <p class="d-flex align-items-start gap-2 small" style="color:rgba(255,255,255,.65)">
+              <i class="bi bi-geo-alt-fill mt-1" style="color:var(--sewa-gold)"></i>
+              123 Aliganj, Lucknow, Uttar Pradesh, India
+            </p>
+            <p class="d-flex align-items-center gap-2 small" style="color:rgba(255,255,255,.65)">
+              <i class="bi bi-telephone-fill" style="color:var(--sewa-gold)"></i>+91 6307 215 600
+            </p>
+            <p class="d-flex align-items-center gap-2 small" style="color:rgba(255,255,255,.65)">
+              <i class="bi bi-envelope-fill" style="color:var(--sewa-gold)"></i>ashishsingh229215@gmail.com
+            </p>
+            <p class="d-flex align-items-center gap-2 small" style="color:rgba(255,255,255,.65)">
+              <i class="bi bi-clock-fill" style="color:var(--sewa-gold)"></i>Mon–Sat, 9 AM – 6 PM
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom pt-3 text-center">
+          <p class="mb-0">&copy; 2025 SEWA – Self Employed Women's Association. All rights reserved.</p>
         </div>
       </div>
-      <div class="row d-flex justify-content-center gap-4 " style="margin-bottom: 3vw;">
-        <div
-          class="col-3 bg-white p-3 rounded-3 d-flex justify-content-start gap-4 align-item-center flex-column"
-        >
-          <h1 class="fs-4">Contact Information</h1>
-          <div class="container">
-            <div class="col-12">
-              <p class="m-0">
-                <i class="bi bi-geo-alt-fill text-success"></i> Address
-              </p>
-              <p class="px-3">123 Aliganj , Lucknow UttarPradesh</p>
-            </div>
-            <div class="col-12">
-              <p class="m-0">
-                <i class="bi bi-telephone-fill text-success"></i> Phone
-              </p>
-              <p class="px-3">6307215600</p>
-            </div>
-            <div class="col-12">
-              <p class="m-0">
-                <i class="bi bi-envelope-fill text-success"></i> Email
-              </p>
-              <p class="px-3">ashishsingh229215@gmail.com</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-6 bg-white p-3 rounded-3">
-          <div class="row">
-            <h1 class="fs-4">Contact Us</h1>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleFormControlInput1"
-                  placeholder="Full Name"
-                />
-              </div>
-            </div>
-            <div class="row">
-              <div class="mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleFormControlInput1"
-                  placeholder="Email Address"
-                />
-              </div>
-            </div>
-            <div class="row">
-              <div class="mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleFormControlInput1"
-                  placeholder="Phone Number"
-                />
-              </div>
-            </div>
+    </footer>
 
-            <div class="row">
-              <div class="container">
-                <select
-                  class="form-select mb-3"
-                  aria-label="Default select example"
-                >
-                  <option selected>how would you like to connect?</option>
-                  <option value="1">Volunteer with Us</option>
-                  <option value="2">Donate / Support Our Work</option>
-                  <option value="3">Partnership / Collaboration</option>
-                  <option value="4">Skill Training Inquiry</option>
-                  <option value="5">Education & Child Support Inquiry</option>
-                  <option value="6">Healthcare & Wellness Support</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="form-floating">
-                <textarea
-                  class="form-control"
-                  placeholder="Leave a comment here"
-                  id="floatingTextarea2"
-                  style="height: 100px"
-                ></textarea>
-                <label for="floatingTextarea2">Your Message</label>
-              </div>
-            </div>
-
-            <div class="row mt-4">
-              <div class="d-grid gap-2">
-                <button class="btn btn-success text-white" type="button">
-                  Send Message
-                </button>
-              </div>
-            </div>
+    <!-- Success Toast -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index:9999">
+      <div id="successToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body">
+            <i class="bi bi-check-circle-fill me-2"></i>
+            Your message has been sent! We'll get back to you soon.
           </div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
       </div>
-      <footer
-        class="row bg-secondary px-5 py-5  d-flex justify-content-around"
-      >
-        <div class="col-2">
-          <h1 class="fs-3 text-white px-3">About Us</h1>
-          <ul>
-            <li class="list-unstyled">
-              <a class=" aa text-decoration-none" href="">About SEWA</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class=" aa text-decoration-none" href="">Our Mission</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class=" aa text-decoration-none" href="">Our Vision</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class=" aa text-decoration-none text-white" href="">Our Impact</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-2">
-          <h1 class="fs-3 text-white">Quick Links</h1>
-          <ul>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="index.html">Home</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="">What We Offer</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="about.html">Projects</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="blog.html">Testimonials</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="contact.html">Contact Us</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-2">
-          <h1 class="fs-3 text-white">Our Services</h1>
-          <ul>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="">Skill Development</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="">Education Support</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="">Health & Wellness</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="">Employment Assistance</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-2">
-          <h1 class="fs-3 text-white">Contact Info</h1>
-          <ul class="float-start">
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="">Address</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="">Phone Number</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="">Email</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="">Working Hours</a>
-            </li>
-            <hr>
-          </ul>
-        </div>
-      </footer>
     </div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-  AOS.init();
-</script>
+      // Scroll-triggered fade-up
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+      // Form validation + toast
+      const form = document.getElementById('contactForm');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!form.checkValidity()) {
+          form.classList.add('was-validated');
+          return;
+        }
+        // Honeypot check
+        if (form.querySelector('[name="website"]').value) return;
+
+        const toast = new bootstrap.Toast(document.getElementById('successToast'), { delay: 5000 });
+        toast.show();
+        form.reset();
+        form.classList.remove('was-validated');
+      });
+    </script>
   </body>
 </html>

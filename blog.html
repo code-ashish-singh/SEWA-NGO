@@ -3,464 +3,869 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <meta name="description" content="SEWA Blog – Stories, insights, and updates on women empowerment, education, healthcare, and community development." />
+    <meta name="keywords" content="NGO blog, SEWA, women empowerment, skill development, education, healthcare, community" />
+    <meta name="theme-color" content="#1a7a4a" />
+    <title>Blog – SEWA | Empowering Families, Building Society</title>
+
+    <meta property="og:title" content="SEWA Blog – Stories of Impact" />
+    <meta property="og:description" content="Read stories, insights, and program updates from the SEWA team." />
+    <meta property="og:type" content="website" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
     <style>
-      .body {
-        background: linear-gradient(to bottom, white, rgb(106, 216, 106));
-        width: 100%;
-        height: fit-content;
+      /* ── Design tokens (same as index) ── */
+      :root {
+        --sewa-green:  #1a7a4a;
+        --sewa-gold:   #e8a020;
+        --sewa-navy:   #0d2240;
+        --sewa-light:  #f4f8f5;
+        --sewa-card-shadow: 0 4px 24px rgba(13,34,64,.10);
+        --font-display: 'Playfair Display', Georgia, serif;
+        --font-body:    'DM Sans', sans-serif;
       }
-      .card {
-        width: 70vw;
+
+      *, *::before, *::after { box-sizing: border-box; }
+      body {
+        font-family: var(--font-body);
+        color: #1c2b1e;
+        background: #fff;
+        overflow-x: hidden;
       }
-      .h1 {
-        font-size: 4em;
-        font-family: sans-serif;
-        transform: skew(-5deg, -5deg);
-      }
-       li a {
-        color: black;
-      }
-      .li {
-        transition: all 1s;
-      }
-      .li:hover {
-        background-color: blue;
-        color: white;
-        padding: 2px 4px;
-      }
-      .aa{
-        color: white !important;
-      }
-      .aa:hover {
-        color: blue !important;
-      }
-      .work-agri {
-        background-image: url("work-agri.jpg");
-        background-position: center;
-        background-size: cover;
-      }
-      * {
-        margin: 0;
-        padding: 0;
-      }
-      .hero {
-        background-color: rgb(202, 194, 194, 0.3);
-        backdrop-filter: blur(2px);
-      }
-      .img {
-        height: 100px;
-        width: 100px;
+
+      /* ── Navbar ── */
+      .navbar { border-bottom: 2px solid var(--sewa-green); }
+      .navbar-brand img { height: 56px; width: auto; object-fit: contain; }
+      .nav-link {
+        font-weight: 500;
+        color: #1c2b1e !important;
         position: relative;
-        padding-bottom: 5px;
+        padding-bottom: .35rem !important;
       }
-      .img::after {
-        content: "";
+      .nav-link::after {
+        content: '';
         position: absolute;
-        bottom: -10px;
-        left: 0;
-        width: 10px;
-        height: 5px;
-        background-color: grey;
-        transition: width 0.5s;
-        border-radius: 5px;
+        bottom: 0; left: 50%;
+        width: 0; height: 2px;
+        background: var(--sewa-green);
+        transition: width .3s, left .3s;
+        border-radius: 2px;
       }
-      .img:hover::after {
-        width: 100px;
-        background-color: orangered;
+      .nav-link:hover::after,
+      .nav-link:focus::after,
+      .nav-link.active::after { width: 100%; left: 0; }
+      .nav-link:hover,
+      .nav-link:focus { color: var(--sewa-green) !important; }
+      .nav-link.active { color: var(--sewa-green) !important; font-weight: 600; }
+      .btn-blog {
+        background: #dc3545;
+        color: #fff;
+        font-weight: 600;
+        border: none;
+        border-radius: .5rem;
+        padding: .4rem 1.2rem;
+        transition: background .2s, transform .15s;
       }
-      .ii {
-        height: 70px;
+      .btn-blog:hover { background: #b02a37; transform: translateY(-1px); color: #fff; }
+
+      /* ── Page hero ── */
+      .blog-hero {
+        background: linear-gradient(135deg, var(--sewa-navy) 0%, var(--sewa-green) 100%);
+        padding: 4.5rem 0 3rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .blog-hero::before {
+        content: '';
+        position: absolute; inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      }
+      .blog-hero-badge {
+        display: inline-block;
+        background: var(--sewa-gold);
+        color: var(--sewa-navy);
+        font-weight: 700;
+        font-size: .78rem;
+        letter-spacing: .1em;
+        padding: .3rem .9rem;
+        border-radius: 2rem;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+      .blog-hero h1 {
+        font-family: var(--font-display);
+        color: #fff;
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        line-height: 1.2;
+      }
+      .blog-hero p { color: rgba(255,255,255,.82); max-width: 520px; }
+
+      /* ── Category filter pills ── */
+      .filter-pill {
+        border: 2px solid var(--sewa-green);
+        color: var(--sewa-green);
+        background: transparent;
+        border-radius: 2rem;
+        padding: .35rem 1.1rem;
+        font-size: .88rem;
+        font-weight: 600;
+        transition: background .2s, color .2s;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+      .filter-pill:hover,
+      .filter-pill.active {
+        background: var(--sewa-green);
+        color: #fff;
+      }
+      .filter-pill.all.active { background: var(--sewa-navy); border-color: var(--sewa-navy); color: #fff; }
+
+      /* ── Blog cards ── */
+      .blog-card {
+        border: none;
+        border-radius: 1rem;
+        box-shadow: var(--sewa-card-shadow);
+        transition: transform .25s, box-shadow .25s;
+        height: 100%;
+        overflow: hidden;
+      }
+      .blog-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 14px 40px rgba(13,34,64,.15);
+      }
+      .blog-card .card-body { padding: 1.6rem; }
+      .blog-cat-tag {
+        display: inline-block;
+        font-size: .72rem;
+        font-weight: 700;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        padding: .22rem .75rem;
+        border-radius: 2rem;
+        margin-bottom: .75rem;
+      }
+      .tag-skill    { background: #d1f0e0; color: #1a7a4a; }
+      .tag-education{ background: #fef3cd; color: #856404; }
+      .tag-health   { background: #f8d7da; color: #842029; }
+      .tag-livelihood{ background: #cfe2ff; color: #084298; }
+      .tag-community{ background: #e2d9f3; color: #432874; }
+
+      .blog-card .card-title {
+        font-family: var(--font-display);
+        font-size: 1.15rem;
+        line-height: 1.35;
+        color: var(--sewa-navy);
+        margin-bottom: .5rem;
+      }
+      .blog-author {
+        display: flex;
+        align-items: center;
+        gap: .6rem;
+        margin-bottom: .9rem;
+      }
+      .author-avatar {
+        width: 36px; height: 36px;
+        border-radius: 50%;
+        background: var(--sewa-green);
+        display: flex; align-items: center; justify-content: center;
+        color: #fff;
+        font-size: .85rem;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+      .author-name { font-size: .85rem; font-weight: 600; color: #3d5244; line-height: 1.2; }
+      .author-role { font-size: .75rem; color: #7a8e80; }
+      .blog-card .card-text {
+        color: #4a5c50;
+        font-size: .93rem;
+        line-height: 1.7;
+        /* Clamp to 4 lines */
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .read-more-link {
+        display: inline-flex;
+        align-items: center;
+        gap: .35rem;
+        color: var(--sewa-green);
+        font-weight: 600;
+        font-size: .9rem;
+        text-decoration: none;
+        margin-top: 1rem;
+        transition: gap .2s;
+      }
+      .read-more-link:hover { gap: .6rem; color: #155c38; }
+
+      /* Featured card (first post) */
+      .blog-card.featured { border-top: 4px solid var(--sewa-gold); }
+      .featured-badge {
+        position: absolute;
+        top: 1rem; right: 1rem;
+        background: var(--sewa-gold);
+        color: var(--sewa-navy);
+        font-size: .7rem;
+        font-weight: 800;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        padding: .25rem .7rem;
+        border-radius: 2rem;
+      }
+
+      /* ── Sidebar ── */
+      .sidebar-widget {
+        background: var(--sewa-light);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .sidebar-widget h5 {
+        font-family: var(--font-display);
+        color: var(--sewa-navy);
+        font-size: 1rem;
+        border-bottom: 2px solid var(--sewa-gold);
+        padding-bottom: .5rem;
+        margin-bottom: 1rem;
+        display: inline-block;
+      }
+      .sidebar-tag {
+        display: inline-block;
+        border: 1.5px solid var(--sewa-green);
+        color: var(--sewa-green);
+        font-size: .8rem;
+        font-weight: 600;
+        padding: .25rem .7rem;
+        border-radius: 2rem;
+        margin: .2rem;
+        text-decoration: none;
+        transition: background .2s, color .2s;
+      }
+      .sidebar-tag:hover { background: var(--sewa-green); color: #fff; }
+      .popular-item {
+        display: flex;
+        gap: .75rem;
+        align-items: flex-start;
+        padding: .65rem 0;
+        border-bottom: 1px solid rgba(0,0,0,.07);
+      }
+      .popular-item:last-child { border-bottom: none; }
+      .popular-num {
+        font-family: var(--font-display);
+        font-size: 1.4rem;
+        font-weight: 900;
+        color: var(--sewa-gold);
+        line-height: 1;
+        flex-shrink: 0;
+        width: 28px;
+        text-align: center;
+      }
+      .popular-title { font-size: .88rem; font-weight: 600; color: var(--sewa-navy); line-height: 1.4; }
+      .popular-meta  { font-size: .75rem; color: #7a8e80; }
+
+      /* ── Newsletter CTA ── */
+      .newsletter-section {
+        background: linear-gradient(135deg, var(--sewa-navy) 0%, var(--sewa-green) 100%);
+      }
+      .newsletter-section h2 { font-family: var(--font-display); }
+
+      /* ── Footer (same as index) ── */
+      footer { background: var(--sewa-navy); color: rgba(255,255,255,.8); }
+      footer h5 {
+        font-family: var(--font-display);
+        color: #fff;
+        font-size: 1.1rem;
+        margin-bottom: 1.1rem;
+        padding-bottom: .5rem;
+        border-bottom: 2px solid var(--sewa-gold);
+        display: inline-block;
+      }
+      footer a {
+        color: rgba(255,255,255,.75);
+        text-decoration: none;
+        font-size: .93rem;
+        transition: color .2s, padding-left .2s;
+        display: block;
+        padding: .22rem 0;
+      }
+      footer a:hover { color: var(--sewa-gold); padding-left: 6px; }
+      .footer-bottom {
+        border-top: 1px solid rgba(255,255,255,.12);
+        font-size: .85rem;
+        color: rgba(255,255,255,.5);
+      }
+      .social-btn {
+        display: inline-flex; align-items: center; justify-content: center;
+        width: 38px; height: 38px;
+        border-radius: 50%;
+        background: rgba(255,255,255,.10);
+        color: #fff;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: background .2s, transform .2s;
+      }
+      .social-btn:hover { background: var(--sewa-gold); color: var(--sewa-navy); transform: translateY(-2px); }
+
+      /* ── Scroll animations ── */
+      @media (prefers-reduced-motion: no-preference) {
+        .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .5s ease, transform .5s ease; }
+        .fade-up.visible { opacity: 1; transform: none; }
+        .fade-up-delay-1 { transition-delay: .1s; }
+        .fade-up-delay-2 { transition-delay: .2s; }
+      }
+
+      /* ── Utilities ── */
+      .btn-sewa-primary {
+        background: var(--sewa-green); color: #fff; border: none;
+        font-weight: 600; border-radius: .5rem; padding: .65rem 1.8rem;
+        transition: background .2s, transform .15s;
+      }
+      .btn-sewa-primary:hover { background: #155c38; color: #fff; transform: translateY(-1px); }
+      .section-eyebrow {
+        font-size: .8rem; font-weight: 700; letter-spacing: .12em;
+        text-transform: uppercase; color: var(--sewa-green); margin-bottom: .4rem;
       }
     </style>
   </head>
   <body>
-    <div
-      class="container-fluid body d-flex justify-content-center align-item-center flex-column"
-      
-    >
-    <nav
-        class="container-fluid navbar bg-light border-body position-sticky top-0 z-3"
-        data-bs-theme="dark"
-      >
-        <img class="img-fluid ii" src="./asset/ngo-logo.png" alt="" />
-        <ul
-          class="d-flex align-item-center justify-content-between col-6 list-unstyled"
-        >
-          <li class="li">
-            <a class="text-decoration-none fs-5" href="index.html"> Home </a>
-          </li>
-          <li class="li">
-            <a class="text-decoration-none fs-5" href=""> Portfolio </a>
-          </li>
-          <li class="li">
-            <a class="text-decoration-none fs-5" href="about.html"> About </a>
-          </li>
-          <li class="li">
-            <a class="text-decoration-none fs-5" href="contact.html">
-              Contact
-            </a>
-          </li>
-          <button class="bg-danger fs-5 px-4 rounded-3 border-0">
-            <a class="text-decoration-none fs-5 text-white" href="blog.html"
-              >BLOG</a
-            >
-          </button>
-        </ul>
 
-        <form class="d-flex" role="search">
-          <input
-            class="form-control me-2 bg-white text-black"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </nav>
+    <!-- ══════════════════════════════════
+         NAVBAR
+    ══════════════════════════════════ -->
+    <nav class="navbar navbar-expand-lg bg-white sticky-top shadow-sm" aria-label="Main navigation">
+      <div class="container-xl">
+        <a class="navbar-brand" href="index.html" aria-label="SEWA Home">
+          <img src="./asset/ngo-logo.png" alt="SEWA Logo" />
+        </a>
 
-      <!-- here is the blog section are commented -->
+        <button class="navbar-toggler border-0" type="button"
+          data-bs-toggle="collapse" data-bs-target="#mainNav"
+          aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <!-- <div class="row text-center">
-        <h1 class="h1 text-center text-uppercase fw-lighter mt-5 mb-5">
-          <mark class="bg-warning text-white">Blog</mark>
-        </h1>
-      </div> -->
-    
-      <div class="container">
-        <div class="row d-flex justify-content-center" data-aos="fade-up"
-     data-aos-anchor-placement="center-bottom">
-          <div class="card" style="width: 70vw">
-            <div class="card-body">
-              <h5 class="card-title">
-                Empowering Women Through Skill Development
-              </h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">
-                Ananya Sharma - Program Coordinator
-              </h6>
-              <p class="card-text fst-italic">
-                Skill development is one of the most effective ways to empower
-                women and create sustainable livelihoods. When women are
-                equipped with practical skills, they gain confidence,
-                independence, and the ability to support their families with
-                dignity. Our skill development programs focus on vocational
-                training, entrepreneurship, and capacity building. Women are
-                trained in areas such as tailoring, handicrafts, digital skills,
-                and small-scale businesses that help them generate income and
-                become self-reliant. By investing in women’s skills, we
-                strengthen families and communities. Empowered women not only
-                improve their own lives but also play a vital role in educating
-                children and contributing to social growth.
-              </p>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav mx-auto gap-lg-2">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Portfolio</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item ms-lg-2">
+              <a class="btn btn-blog active" href="blog.html" aria-current="page">BLOG</a>
+            </li>
+          </ul>
 
-              <a href="#" class="card-link">More About</a>
-            </div>
-          </div>
+          <form class="d-flex gap-2 mt-3 mt-lg-0" role="search" aria-label="Site search">
+            <input class="form-control form-control-sm" type="search"
+              placeholder="Search blog…" aria-label="Search blog posts" />
+            <button class="btn btn-sm btn-sewa-primary" type="submit">Search</button>
+          </form>
         </div>
-        <hr />
-        <div class="row d-flex justify-content-center" data-aos="fade-up"
-     data-aos-anchor-placement="center-bottom">
-          <div class="card" style="width: 70vw">
-            <div class="card-body">
-              <h5 class="card-title">How Education Changes a Child’s Future</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">
-                Rohit Verma – Community Outreach Manager
-              </h6>
-              <p class="card-text fst-italic">
-                Education is the foundation of a brighter and more secure future
-                for every child. It opens doors to opportunity, builds
-                confidence, and helps children break the cycle of
-                poverty.Through education support programs, children receive
-                access to learning resources, guidance, and a safe environment
-                that encourages growth. Beyond academics, education teaches
-                values, discipline, and critical thinking. When children are
-                educated, families become stronger and communities progress.
-                Investing in education today ensures a better tomorrow for
-                future generations.
-              </p>
-
-              <a href="#" class="card-link">More About</a>
-            </div>
-          </div>
-        </div>
-        <hr />
-
-        <div class="row d-flex justify-content-center" data-aos="fade-up"
-     data-aos-anchor-placement="center-bottom">
-          <div class="card" style="width: 70vw">
-            <div class="card-body">
-              <h5 class="card-title">
-                The Importance of Healthcare in Communities
-              </h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">
-                Priya Singh – Education Program Lead
-              </h6>
-              <p class="card-text fst-italic">
-                Good health is essential for a dignified and productive life.
-                Unfortunately, many communities lack access to basic healthcare
-                services and awareness. Healthcare initiatives focus on
-                preventive care, health education, and basic medical support.
-                Health camps and awareness programs help families understand
-                nutrition, hygiene, and early detection of illnesses. Improved
-                healthcare leads to healthier families, reduced medical
-                expenses, and stronger communities overall..
-              </p>
-
-              <a href="#" class="card-link">More About</a>
-            </div>
-          </div>
-        </div>
-        <hr />
-
-        <div class="row d-flex justify-content-center" data-aos="fade-up"
-     data-aos-anchor-placement="center-bottom">
-          <div class="card" style="width: 70vw">
-            <div class="card-body">
-              <h5 class="card-title">
-                Creating Sustainable Livelihood Opportunities
-              </h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">
-                Amit Kumar – Livelihood & Skills Trainer
-              </h6>
-              <p class="card-text fst-italic">
-                Livelihood support helps individuals build stable income sources
-                and long-term financial security. Sustainable livelihoods reduce
-                dependency and empower families to plan for the future. Programs
-                focus on employment guidance, self-employment support, and
-                financial literacy. By connecting people with resources and
-                opportunities, individuals gain confidence and independence.
-                Sustainable livelihoods lead to economic growth and social
-                stability within communities.
-              </p>
-
-              <a href="#" class="card-link">More About</a>
-            </div>
-          </div>
-        </div>
-        <hr />
-
-        <div class="row d-flex justify-content-center" data-aos="fade-up"
-     data-aos-anchor-placement="center-bottom">
-          <div class="card" style="width: 70vw">
-            <div class="card-body">
-              <h5 class="card-title">Why Women Empowerment Matters</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">
-                Neha Patel – Women Empowerment Officer
-              </h6>
-              <p class="card-text fst-italic">
-                Women empowerment is key to building inclusive and resilient
-                societies. When women have equal opportunities, communities
-                thrive. Empowerment initiatives focus on education, skill
-                training, and leadership development. These programs help women
-                make informed decisions and participate actively in economic and
-                social life. Empowered women inspire change and contribute to
-                long-term development.
-              </p>
-
-              <a href="#" class="card-link">More About</a>
-            </div>
-          </div>
-        </div>
-        <hr />
-
-        <div class="row d-flex justify-content-center" data-aos="fade-up"
-     data-aos-anchor-placement="center-bottom">
-          <div class="card" style="width: 70vw">
-            <div class="card-body">
-              <h5 class="card-title">Building Stronger Communities Together</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">
-                Sandeep Mishra – Health & Wellness Coordinator
-              </h6>
-              <p class="card-text fst-italic">
-                Community development works best when people come together with
-                shared goals. Collective efforts create long-lasting impact.
-                Programs encourage participation, collaboration, and mutual
-                support among community members. When people work together,
-                challenges are addressed more effectively. Strong communities
-                lead to sustainable growth and social harmony.
-              </p>
-
-              <a href="#" class="card-link">More About</a>
-            </div>
-          </div>
-        </div>
-
-        <hr />
-
-        <div class="row d-flex justify-content-center" data-aos="fade-up"
-     data-aos-anchor-placement="center-bottom">
-          <div class="card" style="width: 70vw">
-            <div class="card-body">
-              <h5 class="card-title">
-                The Role of Skill Training in Self-Reliance
-              </h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">
-                Kavita Joshi – Child Development Specialist
-              </h6>
-              <p class="card-text fst-italic">
-                Skill training plays a vital role in helping individuals achieve
-                self-reliance. Practical skills improve employability and income
-                opportunities. Training programs are designed to meet local
-                needs and market demands. Participants gain hands-on experience
-                that boosts confidence and productivity. Self-reliant
-                individuals contribute positively to their families and
-                communities.
-              </p>
-
-              <a href="#" class="card-link">More About</a>
-            </div>
-          </div>
-        </div>
-
-        <hr />
-
-        <div class="row d-flex justify-content-center" data-aos="fade-up"
-     data-aos-anchor-placement="center-bottom">
-          <div class="card" style="width: 70vw">
-            <div class="card-body">
-              <h5 class="card-title">
-                Supporting Children Beyond the Classroom
-              </h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">
-                Vikram Singh – Field Operations Manager
-              </h6>
-              <p class="card-text">
-                Child development goes beyond textbooks and exams. Emotional
-                support, guidance, and safe spaces are equally important. Child
-                support programs focus on holistic development by providing
-                learning assistance, mentorship, and care. A supportive
-                environment helps children grow into confident and responsible
-                individuals.
-              </p>
-
-              <a href="#" class="card-link">More About</a>
-            </div>
-          </div>
-        </div>
-
-        <hr />
-        <div class="row justify-content-center" data-aos="fade-up"
-     data-aos-anchor-placement="center-bottom">
-          <div class="card bg-warning-emphasis" style="width: 70vw">
-            <div class="card-body">
-              <h5 class="card-title">Healthcare Awareness Saves Lives</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">
-                Rahul Mehta – Partnership & Communications Lead
-              </h6>
-              <p class="card-text fst-italic">
-                Awareness is a powerful tool in preventing diseases and
-                promoting healthy lifestyles. Health awareness programs educate
-                communities about nutrition, hygiene, and preventive care.
-                Simple knowledge can significantly improve quality of life.
-                Informed communities make healthier choices and reduce health
-                risks.
-              </p>
-
-              <a href="#" class="card-link">More About</a>
-            </div>
-          </div>
-        </div>
-        <hr />
       </div>
-       <footer
-        class="row bg-secondary px-5 py-5  d-flex justify-content-around"
-      >
-        <div class="col-2">
-          <h1 class="fs-3 text-white px-3">About Us</h1>
-          <ul>
-            <li class="list-unstyled">
-              <a class=" aa text-decoration-none" href="">About SEWA</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class=" aa text-decoration-none" href="">Our Mission</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class=" aa text-decoration-none" href="">Our Vision</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class=" aa text-decoration-none text-white" href="">Our Impact</a>
-            </li>
-          </ul>
+    </nav>
+
+    <!-- ══════════════════════════════════
+         PAGE HERO
+    ══════════════════════════════════ -->
+    <section class="blog-hero" aria-label="Blog page hero">
+      <div class="container-xl position-relative">
+        <span class="blog-hero-badge">Our Blog</span>
+        <h1 class="mb-3">Stories of Impact &amp; Change</h1>
+        <p class="mb-0">
+          Insights, updates, and stories from the field — written by our dedicated team
+          working every day to empower communities across India.
+        </p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════
+         CATEGORY FILTERS
+    ══════════════════════════════════ -->
+    <section class="bg-white border-bottom py-3 sticky-top" style="top:66px;z-index:10" aria-label="Filter by category">
+      <div class="container-xl">
+        <div class="d-flex flex-wrap gap-2 align-items-center">
+          <span class="text-muted small fw-semibold me-1 d-none d-sm-inline">Filter:</span>
+          <button class="filter-pill all active" data-filter="all">All Posts</button>
+          <button class="filter-pill" data-filter="skill">Skill Dev</button>
+          <button class="filter-pill" data-filter="education">Education</button>
+          <button class="filter-pill" data-filter="health">Health</button>
+          <button class="filter-pill" data-filter="livelihood">Livelihood</button>
+          <button class="filter-pill" data-filter="community">Community</button>
         </div>
-        <div class="col-2">
-          <h1 class="fs-3 text-white">Quick Links</h1>
-          <ul>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="index.html">Home</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="">What We Offer</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="about.html">Projects</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="blog.html">Testimonials</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="contact.html">Contact Us</a>
-            </li>
-          </ul>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════
+         MAIN CONTENT + SIDEBAR
+    ══════════════════════════════════ -->
+    <main class="py-5" aria-label="Blog posts">
+      <div class="container-xl">
+        <div class="row g-5">
+
+          <!-- ── Blog grid ── -->
+          <div class="col-lg-8">
+            <div class="row g-4" id="blog-grid">
+
+              <!-- Post 1 – Featured -->
+              <div class="col-12 fade-up" data-category="skill">
+                <article class="blog-card card position-relative">
+                  <span class="featured-badge"><i class="bi bi-star-fill me-1"></i>Featured</span>
+                  <div class="card-body">
+                    <span class="blog-cat-tag tag-skill">Skill Development</span>
+                    <h2 class="card-title">Empowering Women Through Skill Development</h2>
+                    <div class="blog-author">
+                      <div class="author-avatar">AS</div>
+                      <div>
+                        <div class="author-name">Ananya Sharma</div>
+                        <div class="author-role">Program Coordinator</div>
+                      </div>
+                    </div>
+                    <p class="card-text">
+                      Skill development is one of the most effective ways to empower women and create
+                      sustainable livelihoods. When women are equipped with practical skills, they gain
+                      confidence, independence, and the ability to support their families with dignity.
+                      Our programs focus on vocational training, entrepreneurship, and capacity building
+                      in tailoring, handicrafts, digital skills, and small-scale businesses.
+                    </p>
+                    <a href="#" class="read-more-link">Read More <i class="bi bi-arrow-right"></i></a>
+                  </div>
+                </article>
+              </div>
+
+              <!-- Post 2 -->
+              <div class="col-sm-6 fade-up fade-up-delay-1" data-category="education">
+                <article class="blog-card card">
+                  <div class="card-body">
+                    <span class="blog-cat-tag tag-education">Education</span>
+                    <h2 class="card-title">How Education Changes a Child's Future</h2>
+                    <div class="blog-author">
+                      <div class="author-avatar" style="background:var(--sewa-gold);color:var(--sewa-navy)">RV</div>
+                      <div>
+                        <div class="author-name">Rohit Verma</div>
+                        <div class="author-role">Community Outreach Manager</div>
+                      </div>
+                    </div>
+                    <p class="card-text">
+                      Education is the foundation of a brighter and more secure future for every child.
+                      It opens doors to opportunity, builds confidence, and helps break the cycle of
+                      poverty. Children receive access to learning resources and a safe, encouraging
+                      environment that fosters growth beyond academics.
+                    </p>
+                    <a href="#" class="read-more-link">Read More <i class="bi bi-arrow-right"></i></a>
+                  </div>
+                </article>
+              </div>
+
+              <!-- Post 3 -->
+              <div class="col-sm-6 fade-up fade-up-delay-2" data-category="health">
+                <article class="blog-card card">
+                  <div class="card-body">
+                    <span class="blog-cat-tag tag-health">Healthcare</span>
+                    <h2 class="card-title">The Importance of Healthcare in Communities</h2>
+                    <div class="blog-author">
+                      <div class="author-avatar" style="background:#e63946">PS</div>
+                      <div>
+                        <div class="author-name">Priya Singh</div>
+                        <div class="author-role">Education Program Lead</div>
+                      </div>
+                    </div>
+                    <p class="card-text">
+                      Good health is essential for a dignified and productive life. Healthcare
+                      initiatives focus on preventive care, health education, and basic medical
+                      support. Health camps and awareness programs help families understand nutrition,
+                      hygiene, and early detection of illnesses.
+                    </p>
+                    <a href="#" class="read-more-link">Read More <i class="bi bi-arrow-right"></i></a>
+                  </div>
+                </article>
+              </div>
+
+              <!-- Post 4 -->
+              <div class="col-sm-6 fade-up" data-category="livelihood">
+                <article class="blog-card card">
+                  <div class="card-body">
+                    <span class="blog-cat-tag tag-livelihood">Livelihood</span>
+                    <h2 class="card-title">Creating Sustainable Livelihood Opportunities</h2>
+                    <div class="blog-author">
+                      <div class="author-avatar" style="background:#0077b6">AK</div>
+                      <div>
+                        <div class="author-name">Amit Kumar</div>
+                        <div class="author-role">Livelihood &amp; Skills Trainer</div>
+                      </div>
+                    </div>
+                    <p class="card-text">
+                      Livelihood support helps individuals build stable income sources and long-term
+                      financial security. Programs focus on employment guidance, self-employment
+                      support, and financial literacy to reduce dependency and empower families to plan
+                      for the future.
+                    </p>
+                    <a href="#" class="read-more-link">Read More <i class="bi bi-arrow-right"></i></a>
+                  </div>
+                </article>
+              </div>
+
+              <!-- Post 5 -->
+              <div class="col-sm-6 fade-up fade-up-delay-1" data-category="skill">
+                <article class="blog-card card">
+                  <div class="card-body">
+                    <span class="blog-cat-tag tag-skill">Empowerment</span>
+                    <h2 class="card-title">Why Women Empowerment Matters</h2>
+                    <div class="blog-author">
+                      <div class="author-avatar" style="background:#6f42c1">NP</div>
+                      <div>
+                        <div class="author-name">Neha Patel</div>
+                        <div class="author-role">Women Empowerment Officer</div>
+                      </div>
+                    </div>
+                    <p class="card-text">
+                      Women empowerment is key to building inclusive and resilient societies. Empowerment
+                      initiatives focus on education, skill training, and leadership development to help
+                      women make informed decisions and participate actively in economic and social life.
+                    </p>
+                    <a href="#" class="read-more-link">Read More <i class="bi bi-arrow-right"></i></a>
+                  </div>
+                </article>
+              </div>
+
+              <!-- Post 6 -->
+              <div class="col-sm-6 fade-up fade-up-delay-2" data-category="community">
+                <article class="blog-card card">
+                  <div class="card-body">
+                    <span class="blog-cat-tag tag-community">Community</span>
+                    <h2 class="card-title">Building Stronger Communities Together</h2>
+                    <div class="blog-author">
+                      <div class="author-avatar" style="background:#5c2e91">SM</div>
+                      <div>
+                        <div class="author-name">Sandeep Mishra</div>
+                        <div class="author-role">Health &amp; Wellness Coordinator</div>
+                      </div>
+                    </div>
+                    <p class="card-text">
+                      Community development works best when people come together with shared goals.
+                      Programs encourage participation, collaboration, and mutual support. When people
+                      work together, challenges are addressed more effectively, leading to sustainable
+                      growth and social harmony.
+                    </p>
+                    <a href="#" class="read-more-link">Read More <i class="bi bi-arrow-right"></i></a>
+                  </div>
+                </article>
+              </div>
+
+              <!-- Post 7 -->
+              <div class="col-sm-6 fade-up" data-category="skill">
+                <article class="blog-card card">
+                  <div class="card-body">
+                    <span class="blog-cat-tag tag-skill">Skill Development</span>
+                    <h2 class="card-title">The Role of Skill Training in Self-Reliance</h2>
+                    <div class="blog-author">
+                      <div class="author-avatar" style="background:#d97706">KJ</div>
+                      <div>
+                        <div class="author-name">Kavita Joshi</div>
+                        <div class="author-role">Child Development Specialist</div>
+                      </div>
+                    </div>
+                    <p class="card-text">
+                      Skill training plays a vital role in helping individuals achieve self-reliance.
+                      Training programs are designed to meet local needs and market demands. Participants
+                      gain hands-on experience that boosts confidence, productivity, and positive
+                      contribution to family and community.
+                    </p>
+                    <a href="#" class="read-more-link">Read More <i class="bi bi-arrow-right"></i></a>
+                  </div>
+                </article>
+              </div>
+
+              <!-- Post 8 -->
+              <div class="col-sm-6 fade-up fade-up-delay-1" data-category="education">
+                <article class="blog-card card">
+                  <div class="card-body">
+                    <span class="blog-cat-tag tag-education">Education</span>
+                    <h2 class="card-title">Supporting Children Beyond the Classroom</h2>
+                    <div class="blog-author">
+                      <div class="author-avatar" style="background:#0d6efd">VS</div>
+                      <div>
+                        <div class="author-name">Vikram Singh</div>
+                        <div class="author-role">Field Operations Manager</div>
+                      </div>
+                    </div>
+                    <p class="card-text">
+                      Child development goes beyond textbooks and exams. Emotional support, guidance,
+                      and safe spaces are equally important. Support programs focus on holistic
+                      development through learning assistance, mentorship, and care that builds
+                      confidence and responsibility.
+                    </p>
+                    <a href="#" class="read-more-link">Read More <i class="bi bi-arrow-right"></i></a>
+                  </div>
+                </article>
+              </div>
+
+              <!-- Post 9 -->
+              <div class="col-12 fade-up fade-up-delay-2" data-category="health">
+                <article class="blog-card card" style="border-left: 4px solid var(--sewa-gold);">
+                  <div class="card-body">
+                    <span class="blog-cat-tag tag-health">Health Awareness</span>
+                    <h2 class="card-title">Healthcare Awareness Saves Lives</h2>
+                    <div class="blog-author">
+                      <div class="author-avatar" style="background:#e8a020;color:#0d2240">RM</div>
+                      <div>
+                        <div class="author-name">Rahul Mehta</div>
+                        <div class="author-role">Partnership &amp; Communications Lead</div>
+                      </div>
+                    </div>
+                    <p class="card-text">
+                      Awareness is a powerful tool in preventing diseases and promoting healthy
+                      lifestyles. Health awareness programs educate communities about nutrition,
+                      hygiene, and preventive care. Simple knowledge can significantly improve quality
+                      of life, help informed communities make healthier choices, and reduce health risks.
+                    </p>
+                    <a href="#" class="read-more-link">Read More <i class="bi bi-arrow-right"></i></a>
+                  </div>
+                </article>
+              </div>
+
+            </div><!-- /blog-grid -->
+
+            <!-- Empty state (shown when filter matches nothing) -->
+            <div id="empty-state" class="text-center py-5 d-none">
+              <i class="bi bi-journal-x" style="font-size:3rem;color:#ccc"></i>
+              <p class="text-muted mt-2">No posts found in this category yet.</p>
+            </div>
+
+            <!-- Pagination -->
+            <nav class="mt-5" aria-label="Blog pagination">
+              <ul class="pagination justify-content-center gap-1">
+                <li class="page-item disabled">
+                  <a class="page-link rounded-3 border-0 shadow-sm" href="#" aria-label="Previous" tabindex="-1">
+                    <i class="bi bi-chevron-left"></i>
+                  </a>
+                </li>
+                <li class="page-item active" aria-current="page">
+                  <a class="page-link rounded-3 border-0" href="#"
+                    style="background:var(--sewa-green);color:#fff">1</a>
+                </li>
+                <li class="page-item"><a class="page-link rounded-3 border-0 shadow-sm" href="#">2</a></li>
+                <li class="page-item"><a class="page-link rounded-3 border-0 shadow-sm" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link rounded-3 border-0 shadow-sm" href="#" aria-label="Next">
+                    <i class="bi bi-chevron-right"></i>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+          <!-- ── Sidebar ── -->
+          <aside class="col-lg-4" aria-label="Blog sidebar">
+
+            <!-- Search widget -->
+            <div class="sidebar-widget fade-up">
+              <h5>Search Posts</h5>
+              <form role="search" aria-label="Search blog posts">
+                <div class="input-group">
+                  <input type="search" class="form-control form-control-sm border-end-0"
+                    placeholder="Search blog…" aria-label="Search blog" />
+                  <button class="btn btn-sewa-primary btn-sm border-0" type="submit" aria-label="Search">
+                    <i class="bi bi-search"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Popular posts widget -->
+            <div class="sidebar-widget fade-up">
+              <h5>Popular Posts</h5>
+              <div class="popular-item">
+                <div class="popular-num">1</div>
+                <div>
+                  <div class="popular-title">Empowering Women Through Skill Development</div>
+                  <div class="popular-meta">Ananya Sharma · Skill Dev</div>
+                </div>
+              </div>
+              <div class="popular-item">
+                <div class="popular-num">2</div>
+                <div>
+                  <div class="popular-title">Healthcare Awareness Saves Lives</div>
+                  <div class="popular-meta">Rahul Mehta · Health</div>
+                </div>
+              </div>
+              <div class="popular-item">
+                <div class="popular-num">3</div>
+                <div>
+                  <div class="popular-title">How Education Changes a Child's Future</div>
+                  <div class="popular-meta">Rohit Verma · Education</div>
+                </div>
+              </div>
+              <div class="popular-item">
+                <div class="popular-num">4</div>
+                <div>
+                  <div class="popular-title">Building Stronger Communities Together</div>
+                  <div class="popular-meta">Sandeep Mishra · Community</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tags widget -->
+            <div class="sidebar-widget fade-up">
+              <h5>Topics</h5>
+              <div class="mt-2">
+                <a href="#" class="sidebar-tag">Skill Dev</a>
+                <a href="#" class="sidebar-tag">Education</a>
+                <a href="#" class="sidebar-tag">Healthcare</a>
+                <a href="#" class="sidebar-tag">Livelihood</a>
+                <a href="#" class="sidebar-tag">Women</a>
+                <a href="#" class="sidebar-tag">Community</a>
+                <a href="#" class="sidebar-tag">Self-Reliance</a>
+                <a href="#" class="sidebar-tag">Children</a>
+                <a href="#" class="sidebar-tag">Awareness</a>
+                <a href="#" class="sidebar-tag">Training</a>
+              </div>
+            </div>
+
+            <!-- Newsletter widget -->
+            <div class="sidebar-widget fade-up" style="background:var(--sewa-navy)">
+              <h5 style="border-color:var(--sewa-gold);color:#fff">Stay Updated</h5>
+              <p style="color:rgba(255,255,255,.75);font-size:.88rem;margin-bottom:1rem">
+                Get our latest stories and updates delivered to your inbox.
+              </p>
+              <form aria-label="Newsletter subscription">
+                <input type="email" class="form-control form-control-sm mb-2"
+                  placeholder="Your email address" aria-label="Email address" required />
+                <button type="submit" class="btn btn-sewa-primary btn-sm w-100">
+                  Subscribe <i class="bi bi-envelope-check ms-1"></i>
+                </button>
+              </form>
+            </div>
+
+          </aside>
+        </div><!-- /row -->
+      </div>
+    </main>
+
+    <!-- ══════════════════════════════════
+         NEWSLETTER CTA BAND
+    ══════════════════════════════════ -->
+    <section class="newsletter-section py-5" aria-labelledby="newsletter-heading">
+      <div class="container-xl">
+        <div class="row align-items-center gy-4">
+          <div class="col-lg-7">
+            <p class="mb-1" style="color:var(--sewa-gold);font-size:.82rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase">
+              Stay Connected
+            </p>
+            <h2 class="text-white mb-2" id="newsletter-heading">
+              Want to Make a Difference?
+            </h2>
+            <p class="mb-0" style="color:rgba(255,255,255,.78)">
+              Subscribe to our newsletter for impact stories, updates, and ways to get involved.
+            </p>
+          </div>
+          <div class="col-lg-5">
+            <form class="d-flex gap-2 flex-column flex-sm-row" aria-label="Footer newsletter subscription">
+              <input type="email" class="form-control"
+                placeholder="Your email address" aria-label="Email for newsletter" required />
+              <button type="submit" class="btn btn-sewa-primary flex-shrink-0">
+                Subscribe
+              </button>
+            </form>
+          </div>
         </div>
-        <div class="col-2">
-          <h1 class="fs-3 text-white">Our Services</h1>
-          <ul>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="">Skill Development</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="">Education Support</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="">Health & Wellness</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="">Employment Assistance</a>
-            </li>
-          </ul>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════
+         FOOTER
+    ══════════════════════════════════ -->
+    <footer class="pt-5 pb-3" role="contentinfo">
+      <div class="container-xl">
+        <div class="row g-5 pb-4">
+          <div class="col-lg-3 col-md-6">
+            <img src="./asset/ngo-logo.png" alt="SEWA" height="56"
+              class="mb-3 bg-white rounded p-1" loading="lazy" />
+            <p style="color:rgba(255,255,255,.65);font-size:.9rem;line-height:1.7">
+              Empowering families and building a stronger society through skill development,
+              education, healthcare, and employment support.
+            </p>
+            <div class="d-flex gap-2 mt-3">
+              <a href="#" class="social-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="social-btn" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="social-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6 col-sm-6">
+            <h5>About Us</h5>
+            <a href="#">About SEWA</a>
+            <a href="#">Our Mission</a>
+            <a href="#">Our Vision</a>
+            <a href="#">Our Impact</a>
+          </div>
+          <div class="col-lg-2 col-md-6 col-sm-6">
+            <h5>Quick Links</h5>
+            <a href="index.html">Home</a>
+            <a href="#">What We Offer</a>
+            <a href="about.html">Projects</a>
+            <a href="blog.html">Testimonials</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+          <div class="col-lg-2 col-md-6 col-sm-6">
+            <h5>Our Services</h5>
+            <a href="#">Skill Development</a>
+            <a href="#">Education Support</a>
+            <a href="#">Health &amp; Wellness</a>
+            <a href="#">Employment Assistance</a>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <h5>Contact Info</h5>
+            <p class="d-flex align-items-start gap-2 small" style="color:rgba(255,255,255,.65)">
+              <i class="bi bi-geo-alt-fill mt-1" style="color:var(--sewa-gold)"></i>
+              123 SEWA Nagar, Sultanpur, Uttar Pradesh, India
+            </p>
+            <p class="d-flex align-items-center gap-2 small" style="color:rgba(255,255,255,.65)">
+              <i class="bi bi-telephone-fill" style="color:var(--sewa-gold)"></i>+91 98765 43210
+            </p>
+            <p class="d-flex align-items-center gap-2 small" style="color:rgba(255,255,255,.65)">
+              <i class="bi bi-envelope-fill" style="color:var(--sewa-gold)"></i>info@sewaorganization.org
+            </p>
+            <p class="d-flex align-items-center gap-2 small" style="color:rgba(255,255,255,.65)">
+              <i class="bi bi-clock-fill" style="color:var(--sewa-gold)"></i>Mon–Sat, 9 AM – 6 PM
+            </p>
+          </div>
         </div>
-        <div class="col-2">
-          <h1 class="fs-3 text-white">Contact Info</h1>
-          <ul class="float-start">
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="">Address</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="">Phone Number</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="">Email</a>
-            </li>
-            <hr>
-            <li class="list-unstyled">
-              <a class="text-decoration-none aa" href="">Working Hours</a>
-            </li>
-            <hr>
-          </ul>
+        <div class="footer-bottom pt-3 text-center">
+          <p class="mb-0">&copy; 2025 SEWA – Self Employed Women's Association. All rights reserved.</p>
         </div>
-      </footer>
-    </div>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-  AOS.init();
-</script>
+      // Scroll-triggered fade-up
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+      // Category filter
+      const filterBtns = document.querySelectorAll('.filter-pill');
+      const cards = document.querySelectorAll('#blog-grid > [data-category]');
+      const emptyState = document.getElementById('empty-state');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.dataset.filter;
+          let visible = 0;
+          cards.forEach(card => {
+            const match = filter === 'all' || card.dataset.category === filter;
+            card.style.display = match ? '' : 'none';
+            if (match) visible++;
+          });
+          emptyState.classList.toggle('d-none', visible > 0);
+        });
+      });
+    </script>
   </body>
 </html>
